@@ -24,8 +24,53 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#0b0b0b;
-color:white;
+background:linear-gradient(120deg,#e9e9e9,#dcdcdc,#efefef);
+color:black;
+overflow-x:hidden;
+}
+
+/* BACKGROUND SHAPES */
+
+.bg-shapes{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+overflow:hidden;
+}
+
+.shape{
+position:absolute;
+border-radius:50%;
+filter:blur(120px);
+opacity:0.6;
+}
+
+.shape1{
+width:500px;
+height:500px;
+background:#bdbdbd;
+top:-100px;
+left:-100px;
+}
+
+.shape2{
+width:400px;
+height:400px;
+background:#cfcfcf;
+bottom:-120px;
+right:-100px;
+}
+
+.shape3{
+width:300px;
+height:300px;
+background:#a8a8a8;
+top:50%;
+left:40%;
+transform:translate(-50%,-50%);
 }
 
 /* NAVBAR */
@@ -38,7 +83,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 10%;
-background:rgba(0,0,0,0.5);
+background:rgba(255,255,255,0.4);
 backdrop-filter:blur(10px);
 z-index:1000;
 }
@@ -50,8 +95,8 @@ letter-spacing:2px;
 }
 
 .buy-btn{
-background:white;
-color:black;
+background:black;
+color:white;
 padding:10px 20px;
 border-radius:30px;
 text-decoration:none;
@@ -71,19 +116,19 @@ padding:20px;
 }
 
 .hero h1{
-font-size:48px;
+font-size:60px;
 margin-bottom:20px;
 }
 
 .hero p{
 font-size:18px;
-opacity:0.8;
 margin-bottom:30px;
+opacity:0.8;
 }
 
 .hero-btn{
-background:white;
-color:black;
+background:black;
+color:white;
 padding:14px 28px;
 border-radius:30px;
 text-decoration:none;
@@ -110,8 +155,11 @@ width:320px;
 padding:20px;
 border-radius:20px;
 
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.35);
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,0.4);
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
 .work-card img{
@@ -126,9 +174,9 @@ margin-top:15px;
 .work-card a{
 display:inline-block;
 margin-top:10px;
-color:white;
 text-decoration:none;
-border-bottom:1px solid white;
+color:black;
+border-bottom:1px solid black;
 }
 
 /* PRICING */
@@ -139,7 +187,7 @@ text-align:center;
 }
 
 .pricing-container{
-margin-top:50px;
+margin-top:60px;
 display:flex;
 gap:30px;
 justify-content:center;
@@ -151,16 +199,18 @@ width:280px;
 padding:30px;
 border-radius:20px;
 
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.35);
+backdrop-filter:blur(18px);
 
-box-shadow:0 10px 40px rgba(0,0,0,0.5);
+border:1px solid rgba(255,255,255,0.4);
+
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
 
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-10px);
+transform:translateY(-12px) scale(1.03);
 }
 
 .card h3{
@@ -184,34 +234,37 @@ font-weight:bold;
 }
 
 .popular{
-border:2px solid white;
+border:2px solid black;
 }
 
 /* CTA */
 
 .cta{
-padding:120px 20px;
+padding:140px 20px;
 text-align:center;
 }
 
 .cta h2{
 font-size:36px;
-margin-bottom:20px;
+margin-bottom:40px;
 }
 
 .cta-btn{
-background:white;
-color:black;
-padding:15px 30px;
+display:inline-block;
+background:black;
+color:white;
+padding:16px 34px;
 border-radius:30px;
 text-decoration:none;
 font-weight:bold;
+margin-top:20px;
 }
 
 /* FOOTER */
 
 footer{
-background:black;
+background:rgba(255,255,255,0.4);
+backdrop-filter:blur(10px);
 padding:80px 10%;
 }
 
@@ -227,8 +280,8 @@ margin-bottom:15px;
 }
 
 .footer-column p{
-opacity:0.7;
 margin:5px 0;
+opacity:0.8;
 }
 
 .copyright{
@@ -242,7 +295,7 @@ opacity:0.6;
 @media(max-width:800px){
 
 .hero h1{
-font-size:34px;
+font-size:38px;
 }
 
 nav{
@@ -256,6 +309,12 @@ padding:20px;
 </head>
 
 <body>
+
+<div class="bg-shapes">
+<div class="shape shape1"></div>
+<div class="shape shape2"></div>
+<div class="shape shape3"></div>
+</div>
 
 <!-- NAVBAR -->
 
@@ -272,16 +331,16 @@ padding:20px;
 
 <section class="hero">
 
-<h1>Websites For Local Businesses</h1>
+<h1>KnowBrand</h1>
 
-<p>Modern websites that help your business get more customers.</p>
+<p>We build modern websites for local businesses.</p>
 
 <a href="#pricing" class="hero-btn">VIEW PRICING</a>
 
 </section>
 
 
-<!-- OUR WORK -->
+<!-- WORK -->
 
 <section id="work">
 
@@ -320,13 +379,14 @@ padding:20px;
 
 <ul>
 <li>✔ 1 Page Website</li>
-<li>✔ Business Info</li>
-<li>✔ Google Maps</li>
-<li>✔ WhatsApp Contact</li>
+<li>✔ Shop Information</li>
+<li>✔ Google Map Location</li>
+<li>✔ Whatsapp Booking</li>
 <li>✔ Mobile Responsive</li>
+<li>✔ Extra Changes</li>
 </ul>
 
-<div class="price">₹2999</div>
+<div class="price">2,999/-</div>
 
 </div>
 
@@ -336,15 +396,15 @@ padding:20px;
 <h3>STANDARD</h3>
 
 <ul>
-<li>✔ Everything in Basic</li>
-<li>✔ Better Design</li>
+<li>✔ All from basic</li>
+<li>✔ Better designs</li>
 <li>✔ Photo Gallery</li>
-<li>✔ Menu / Services</li>
-<li>✔ Domain Setup</li>
+<li>✔ Menu</li>
+<li>✔ Domain Connection</li>
 <li>✔ Basic SEO</li>
 </ul>
 
-<div class="price">₹4999</div>
+<div class="price">4,999/-</div>
 
 </div>
 
@@ -354,14 +414,15 @@ padding:20px;
 <h3>PREMIUM</h3>
 
 <ul>
-<li>✔ Everything in Standard</li>
-<li>✔ 3-4 Pages</li>
-<li>✔ Faster Performance</li>
-<li>✔ Priority Updates</li>
-<li>✔ 3 Months Support</li>
+<li>✔ All from Standard</li>
+<li>✔ 3-4 page Website</li>
+<li>✔ Faster Loading</li>
+<li>✔ Minute changes</li>
+<li>✔ Better setup</li>
+<li>✔ 3 Month Resolve</li>
 </ul>
 
-<div class="price">₹5999</div>
+<div class="price">5,999/-</div>
 
 </div>
 
@@ -388,39 +449,26 @@ padding:20px;
 <div class="footer-container">
 
 <div class="footer-column">
-
 <h3>About</h3>
-
 <p>KnowBrand builds modern websites for local businesses at affordable prices.</p>
-
 </div>
 
-
 <div class="footer-column">
-
 <h3>Founders</h3>
-
 <p>Sidharth Gaikwad</p>
 <p>Co-Founder</p>
-
 </div>
 
-
 <div class="footer-column">
-
 <h3>Contact</h3>
-
 <p>Email: contact@knowbrand.in</p>
 <p>Phone: +91 XXXXXXXX</p>
-
 </div>
 
 </div>
 
 <p class="copyright">
-
 © 2026 KnowBrand. All Rights Reserved
-
 </p>
 
 </footer>
