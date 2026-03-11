@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>KnowMore</title>
 
@@ -11,55 +12,78 @@
 
 /* GLOBAL */
 
-body{
+*{
 margin:0;
-font-family:Arial;
-background:linear-gradient(135deg,#f2f2f2,#dcdcdc,#ededed);
-color:black;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#f2f2f2,#e1e1e1,#fafafa);
+color:#111;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
 nav{
+position:fixed;
+top:0;
+width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px;
-background:rgba(255,255,255,0.5);
+padding:18px 8%;
+background:rgba(255,255,255,0.45);
 backdrop-filter:blur(10px);
-position:sticky;
-top:0;
+z-index:1000;
 }
 
 .logo{
 font-size:22px;
 font-weight:bold;
+letter-spacing:1px;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
 }
 
 .nav-links a{
-margin:0 15px;
 text-decoration:none;
 color:black;
+font-weight:500;
 }
 
-.buy{
+.buy-btn{
 background:black;
 color:white;
-padding:10px 20px;
-border-radius:20px;
-text-decoration:none;
+padding:10px 22px;
+border-radius:25px;
 cursor:pointer;
 }
 
+/* HERO */
+
 .hero{
-height:80vh;
+height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding:20px;
 }
 
 .hero h1{
-font-size:55px;
+font-size:60px;
+margin-bottom:20px;
 }
 
 .hero p{
@@ -68,44 +92,52 @@ margin-bottom:30px;
 }
 
 .hero button{
-padding:15px 30px;
+padding:16px 35px;
 border:none;
 background:black;
 color:white;
-border-radius:25px;
+border-radius:30px;
 cursor:pointer;
 }
 
-/* WORK */
+/* SECTION */
 
-.work{
-padding:100px 10%;
+section{
+padding:110px 10%;
 text-align:center;
 }
 
-.cards{
+/* SERVICES */
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.service-card{
+padding:30px;
+background:rgba(255,255,255,0.4);
+border-radius:15px;
+backdrop-filter:blur(15px);
+}
+
+/* PORTFOLIO */
+
+.portfolio-grid{
 display:flex;
 gap:30px;
-flex-wrap:wrap;
 justify-content:center;
+flex-wrap:wrap;
 margin-top:50px;
 }
 
-.card{
-width:320px;
+.port-card{
+width:330px;
 padding:20px;
-border-radius:15px;
 background:rgba(255,255,255,0.4);
-backdrop-filter:blur(20px);
-}
-
-.card iframe{
-width:1200px;
-height:800px;
-transform:scale(0.25);
-transform-origin:top left;
-border:none;
-pointer-events:none;
+border-radius:15px;
 }
 
 .preview{
@@ -113,22 +145,20 @@ width:100%;
 height:200px;
 overflow:hidden;
 border-radius:10px;
-margin-bottom:15px;
 }
 
-.card a{
-display:inline-block;
-margin-top:10px;
+.preview iframe{
+width:1200px;
+height:800px;
+transform:scale(0.26);
+transform-origin:top left;
+pointer-events:none;
+border:none;
 }
 
 /* PRICING */
 
-.pricing{
-padding:100px 10%;
-text-align:center;
-}
-
-.price-cards{
+.pricing-grid{
 display:flex;
 gap:30px;
 justify-content:center;
@@ -136,24 +166,24 @@ flex-wrap:wrap;
 margin-top:50px;
 }
 
-.p-card{
+.price-card{
 width:280px;
-padding:30px;
+padding:35px;
 background:rgba(255,255,255,0.4);
 border-radius:15px;
 }
 
-.p-card ul{
+.price-card ul{
 list-style:none;
-padding:0;
+margin:20px 0;
 }
 
-.p-card li{
-margin:10px 0;
+.price-card li{
+margin:8px 0;
 }
 
-.p-card button{
-padding:10px 20px;
+.price-card button{
+padding:10px 22px;
 background:black;
 color:white;
 border:none;
@@ -161,35 +191,88 @@ border-radius:20px;
 cursor:pointer;
 }
 
-/* FOUNDERS */
+/* PROCESS */
 
-.founders{
-padding:80px 10%;
-text-align:center;
+.process-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-top:50px;
 }
 
+.step{
+background:rgba(255,255,255,0.4);
+padding:25px;
+border-radius:15px;
+}
+
+/* TESTIMONIALS */
+
+.testimonial{
+max-width:600px;
+margin:auto;
+margin-top:40px;
+font-style:italic;
+}
+
+/* FAQ */
+
+.faq{
+max-width:700px;
+margin:auto;
+margin-top:40px;
+text-align:left;
+}
+
+.faq-item{
+margin-bottom:20px;
+}
+
+.faq-item h4{
+cursor:pointer;
+background:#fff;
+padding:15px;
+border-radius:10px;
+}
+
+.faq-item p{
+display:none;
+padding:10px;
+}
+
+/* FOUNDERS */
+
 .founders p{
-margin:10px;
+margin:8px 0;
 }
 
 /* CONTACT */
-
-.contact{
-padding:80px 10%;
-text-align:center;
-}
 
 .contact a{
 display:inline-block;
 margin-top:20px;
 background:black;
 color:white;
-padding:12px 25px;
+padding:14px 28px;
 border-radius:25px;
 text-decoration:none;
 }
 
-/* MODAL */
+/* WHATSAPP FLOAT */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:14px 18px;
+border-radius:50px;
+font-size:14px;
+text-decoration:none;
+}
+
+/* ORDER MODAL */
 
 .modal{
 display:none;
@@ -198,7 +281,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.5);
+background:rgba(0,0,0,0.6);
 justify-content:center;
 align-items:center;
 }
@@ -208,12 +291,13 @@ background:white;
 padding:40px;
 border-radius:10px;
 width:300px;
+text-align:center;
 }
 
 .modal select{
 width:100%;
 padding:10px;
-margin:10px 0;
+margin:15px 0;
 }
 
 .modal button{
@@ -222,7 +306,12 @@ background:black;
 color:white;
 border:none;
 border-radius:20px;
-cursor:pointer;
+}
+
+footer{
+padding:40px;
+text-align:center;
+opacity:0.7;
 }
 
 </style>
@@ -231,22 +320,19 @@ cursor:pointer;
 
 <body>
 
-<!-- NAV -->
-
 <nav>
 
 <div class="logo">KnowMore</div>
 
 <div class="nav-links">
-
-<a href="#work">Work</a>
+<a href="#services">Services</a>
+<a href="#portfolio">Work</a>
 <a href="#pricing">Pricing</a>
-<a href="#founders">Founders</a>
+<a href="#faq">FAQ</a>
 <a href="#contact">Contact</a>
-
 </div>
 
-<div class="buy" onclick="openOrder()">BUY NOW</div>
+<div class="buy-btn" onclick="openOrder()">BUY NOW</div>
 
 </nav>
 
@@ -255,22 +341,38 @@ cursor:pointer;
 <section class="hero">
 
 <h1>KnowMore</h1>
-
-<p>Modern Websites For Local Businesses</p>
+<p>Modern websites for local businesses.</p>
 
 <button onclick="openOrder()">Start My Website</button>
 
 </section>
 
-<!-- WORK -->
+<!-- SERVICES -->
 
-<section id="work" class="work">
+<section id="services">
+
+<h2>Services</h2>
+
+<div class="services-grid">
+
+<div class="service-card">Business Websites</div>
+<div class="service-card">Restaurant Websites</div>
+<div class="service-card">Salon Websites</div>
+<div class="service-card">Clothing Store Sites</div>
+
+</div>
+
+</section>
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
 
 <h2>Our Work</h2>
 
-<div class="cards">
+<div class="portfolio-grid">
 
-<div class="card">
+<div class="port-card">
 
 <div class="preview">
 <iframe src="https://knowbrand.github.io"></iframe>
@@ -278,19 +380,15 @@ cursor:pointer;
 
 <h3>Clothing Store</h3>
 
-<a href="https://knowbrand.github.io" target="_blank">View Demo</a>
-
 </div>
 
-<div class="card">
+<div class="port-card">
 
 <div class="preview">
 <iframe src="https://knowbrand.github.io"></iframe>
 </div>
 
 <h3>Business Website</h3>
-
-<a href="https://knowbrand.github.io" target="_blank">View Demo</a>
 
 </div>
 
@@ -300,63 +398,106 @@ cursor:pointer;
 
 <!-- PRICING -->
 
-<section id="pricing" class="pricing">
+<section id="pricing">
 
 <h2>Pricing</h2>
 
-<div class="price-cards">
+<div class="pricing-grid">
 
-<div class="p-card">
+<div class="price-card">
 
 <h3>Basic</h3>
 
 <ul>
-
 <li>1 Page Website</li>
 <li>Mobile Friendly</li>
 <li>Google Maps</li>
-
 </ul>
 
-<h2>₹2999</h2>
-
-<button onclick="openOrder()">Buy</button>
+<button onclick="openOrder()">₹2999</button>
 
 </div>
 
-<div class="p-card">
+<div class="price-card">
 
 <h3>Standard</h3>
 
 <ul>
-
 <li>All Basic Features</li>
-<li>Gallery</li>
+<li>Photo Gallery</li>
 <li>Menu Section</li>
-
 </ul>
 
-<h2>₹4999</h2>
-
-<button onclick="openOrder()">Buy</button>
+<button onclick="openOrder()">₹4999</button>
 
 </div>
 
-<div class="p-card">
+<div class="price-card">
 
 <h3>Premium</h3>
 
 <ul>
-
-<li>Multi Page</li>
-<li>Faster Loading</li>
-<li>Extra Changes</li>
-
+<li>Multi Page Website</li>
+<li>Priority Changes</li>
+<li>Better Setup</li>
 </ul>
 
-<h2>₹5999</h2>
+<button onclick="openOrder()">₹5999</button>
 
-<button onclick="openOrder()">Buy</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROCESS -->
+
+<section>
+
+<h2>How It Works</h2>
+
+<div class="process-grid">
+
+<div class="step">1. Choose Plan</div>
+<div class="step">2. Send Request</div>
+<div class="step">3. We Build Your Website</div>
+<div class="step">4. Business Goes Online</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIAL -->
+
+<section>
+
+<h2>Client Feedback</h2>
+
+<p class="testimonial">
+"KnowMore helped my shop get online quickly and professionally."
+</p>
+
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+
+<h2>FAQ</h2>
+
+<div class="faq">
+
+<div class="faq-item">
+
+<h4 onclick="toggleFAQ(this)">How long does it take?</h4>
+<p>Usually 2-5 days depending on features.</p>
+
+</div>
+
+<div class="faq-item">
+
+<h4 onclick="toggleFAQ(this)">Do you host the site?</h4>
+<p>Yes we can host it or give you the full code.</p>
 
 </div>
 
@@ -366,7 +507,7 @@ cursor:pointer;
 
 <!-- FOUNDERS -->
 
-<section id="founders" class="founders">
+<section class="founders">
 
 <h2>Founders</h2>
 
@@ -388,13 +529,23 @@ cursor:pointer;
 
 </section>
 
+<footer>
+
+© 2026 KnowMore
+
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+
+<a class="whatsapp" href="https://wa.me/919167878131">WhatsApp</a>
+
 <!-- ORDER MODAL -->
 
 <div class="modal" id="orderModal">
 
 <div class="modal-box">
 
-<h3>Choose Plan</h3>
+<h3>Select Plan</h3>
 
 <select id="plan">
 
@@ -427,6 +578,14 @@ let msg="Hello KnowMore, I want the "+plan+" website plan."
 let url="https://wa.me/919167878131?text="+encodeURIComponent(msg)
 
 window.open(url)
+
+}
+
+function toggleFAQ(el){
+
+let p=el.nextElementSibling
+
+p.style.display=p.style.display==="block"?"none":"block"
 
 }
 
