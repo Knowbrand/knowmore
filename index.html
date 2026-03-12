@@ -9,6 +9,21 @@
 <title>KnowMore</title>
 
 <style>
+  
+  .scroll-arrow{
+display:block;
+margin-top:40px;
+font-size:40px;
+text-decoration:none;
+color:black;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%{transform:translateY(0);}
+50%{transform:translateY(10px);}
+100%{transform:translateY(0);}
+}
 
 /* GLOBAL */
 
@@ -425,6 +440,8 @@ width:90%;
 <button onclick="window.location.href='pricing.html'">
 View Pricing
 </button>
+
+<a href="#services" class="scroll-arrow">↓</a>
 
 </section>
 
