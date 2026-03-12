@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pricing | KnowMore</title>
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#f3f3f3,#e8e8e8,#fafafa);
+color:#111;
+}
+
+/* NAV */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:white;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+.back-btn{
+background:black;
+color:white;
+padding:10px 22px;
+border-radius:25px;
+text-decoration:none;
+}
+
+/* HEADER */
+
+.header{
+text-align:center;
+margin-top:60px;
+}
+
+.header h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.header p{
+opacity:0.7;
+}
+
+/* PRICING GRID */
+
+.pricing{
+margin-top:60px;
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+padding:0 20px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+width:300px;
+padding:35px;
+border-radius:18px;
+box-shadow:0 15px 30px rgba(0,0,0,0.08);
+text-align:center;
+position:relative;
+}
+
+/* HIGHLIGHTED PLAN */
+
+.popular{
+transform:scale(1.05);
+box-shadow:0 25px 50px rgba(0,0,0,0.12);
+}
+
+.popular-badge{
+position:absolute;
+top:-12px;
+left:50%;
+transform:translateX(-50%);
+background:black;
+color:white;
+padding:6px 14px;
+border-radius:20px;
+font-size:12px;
+}
+
+/* PRICE */
+
+.price{
+font-size:36px;
+margin:15px 0;
+}
+
+/* FEATURES */
+
+ul{
+list-style:none;
+margin:20px 0;
+}
+
+li{
+margin:10px 0;
+opacity:0.8;
+}
+
+/* BUTTON */
+
+.plan-btn{
+display:inline-block;
+margin-top:20px;
+background:black;
+color:white;
+padding:12px 28px;
+border-radius:25px;
+text-decoration:none;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.pricing{
+flex-direction:column;
+align-items:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav>
+
+<div class="logo">KnowMore</div>
+
+<a href="index.html" class="back-btn">Back</a>
+
+</nav>
+
+<!-- HEADER -->
+
+<section class="header">
+
+<h1>Choose Your Website Plan</h1>
+
+<p>Simple pricing for modern business websites.</p>
+
+</section>
+
+<!-- PRICING -->
+
+<section class="pricing">
+
+<!-- BASIC -->
+
+<div class="card">
+
+<h3>Basic</h3>
+
+<div class="price">₹2999</div>
+
+<ul>
+
+<li>1 Page Website</li>
+<li>Mobile Responsive Design</li>
+<li>Business Information Section</li>
+<li>Google Maps Integration</li>
+<li>WhatsApp Contact Button</li>
+<li>Basic SEO Setup</li>
+<li>Fast Loading</li>
+
+</ul>
+
+<a href="demo.html" class="plan-btn">Book Free Demo</a>
+
+</div>
+
+
+<!-- STANDARD -->
+
+<div class="card popular">
+
+<div class="popular-badge">Most Popular</div>
+
+<h3>Standard</h3>
+
+<div class="price">₹4999</div>
+
+<ul>
+
+<li>Everything in Basic</li>
+<li>Up to 4 Website Sections</li>
+<li>Photo Gallery</li>
+<li>Menu / Services Layout</li>
+<li>Better UI Design</li>
+<li>Animations</li>
+<li>Priority Support</li>
+
+</ul>
+
+<a href="demo.html" class="plan-btn">Book Free Demo</a>
+
+</div>
+
+
+<!-- PREMIUM -->
+
+<div class="card">
+
+<h3>Premium</h3>
+
+<div class="price">₹5999</div>
+
+<ul>
+
+<li>Everything in Standard</li>
+<li>Multi Page Website</li>
+<li>Advanced Custom Design</li>
+<li>Unlimited Sections</li>
+<li>Priority Changes</li>
+<li>Complete Setup Help</li>
+
+</ul>
+
+<a href="demo.html" class="plan-btn">Book Free Demo</a>
+
+</div>
+
+</section>
+
+</body>
+</html>
