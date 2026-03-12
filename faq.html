@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FAQ | KnowMore</title>
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#eaf0f5;
+padding:60px;
+}
+
+/* MAIN CARD */
+
+.faq-container{
+max-width:1100px;
+margin:auto;
+background:white;
+border-radius:10px;
+padding:50px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* HEADER */
+
+.faq-header{
+margin-bottom:40px;
+}
+
+.faq-header h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.faq-header p{
+opacity:0.6;
+}
+
+/* LAYOUT */
+
+.faq-layout{
+display:flex;
+gap:40px;
+}
+
+/* CATEGORY SIDEBAR */
+
+.categories{
+width:220px;
+}
+
+.cat-btn{
+display:block;
+padding:12px;
+margin-bottom:10px;
+background:#f4f4f4;
+border-radius:20px;
+cursor:pointer;
+border:none;
+width:100%;
+text-align:left;
+}
+
+.cat-btn.active{
+background:#4da3ff;
+color:white;
+}
+
+/* QUESTIONS AREA */
+
+.faq-content{
+flex:1;
+}
+
+/* FAQ ITEM */
+
+.faq-item{
+margin-bottom:15px;
+border-radius:10px;
+background:#f7f7f7;
+overflow:hidden;
+}
+
+.faq-question{
+padding:16px;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+font-weight:500;
+}
+
+.faq-answer{
+display:none;
+padding:16px;
+opacity:0.8;
+background:white;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.faq-layout{
+flex-direction:column;
+}
+
+.categories{
+width:100%;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.cat-btn{
+width:auto;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="faq-container">
+
+<div class="faq-header">
+
+<h1>Frequently Asked Questions</h1>
+
+<p>Everything you need to know about KnowMore websites.</p>
+
+</div>
+
+<div class="faq-layout">
+
+<!-- CATEGORIES -->
+
+<div class="categories">
+
+<button class="cat-btn active" onclick="showCategory('general',this)">General</button>
+<button class="cat-btn" onclick="showCategory('pricing',this)">Pricing</button>
+<button class="cat-btn" onclick="showCategory('website',this)">Website Features</button>
+<button class="cat-btn" onclick="showCategory('technical',this)">Technical</button>
+<button class="cat-btn" onclick="showCategory('support',this)">Support</button>
+
+</div>
+
+<!-- FAQ CONTENT -->
+
+<div class="faq-content">
+
+<!-- GENERAL -->
+
+<div class="faq-group" id="general">
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+What is KnowMore?
+<span>+</span>
+</div>
+<div class="faq-answer">
+KnowMore builds modern websites for local businesses.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+Who are these websites for?
+<span>+</span>
+</div>
+<div class="faq-answer">
+Our websites are designed for small businesses like restaurants, salons, clothing stores and local services.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+How long does it take to build my website?
+<span>+</span>
+</div>
+<div class="faq-answer">
+Most websites are delivered within 2-5 days depending on complexity.
+</div>
+</div>
+
+</div>
+
+<!-- PRICING -->
+
+<div class="faq-group" id="pricing" style="display:none">
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+How much does a website cost?
+<span>+</span>
+</div>
+<div class="faq-answer">
+Our websites start from ₹2999 depending on the plan you choose.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+Are there any monthly fees?
+<span>+</span>
+</div>
+<div class="faq-answer">
+No. Our websites are one-time builds unless you request additional services.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+Do you offer refunds?
+<span>+</span>
+</div>
+<div class="faq-answer">
+Refunds depend on the project stage and work completed.
+</div>
+</div>
+
+</div>
+
+<!-- WEBSITE FEATURES -->
+
+<div class="faq-group" id="website" style="display:none">
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+Will my website work on phones?
+<span>+</span>
+</div>
+<div class="faq-answer">
+Yes. Every website is fully mobile responsive.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+Can my website include WhatsApp?
+<span>+</span>
+</div>
+<div class="faq-answer">
+Yes. We add WhatsApp contact buttons for easy communication.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+Can you add Google Maps?
+<span>+</span>
+</div>
+<div class="faq-answer">
+Yes. We embed Google Maps so customers can find your business easily.
+</div>
+</div>
+
+</div>
+
+<!-- TECHNICAL -->
+
+<div class="faq-group" id="technical" style="display:none">
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+Do I own the website code?
+<span>+</span>
+</div>
+<div class="faq-answer">
+Yes. You get full ownership of the website files.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+Can I host the site anywhere?
+<span>+</span>
+</div>
+<div class="faq-answer">
+Yes. You can host it on GitHub Pages or any hosting provider.
+</div>
+</div>
+
+</div>
+
+<!-- SUPPORT -->
+
+<div class="faq-group" id="support" style="display:none">
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+Do you offer support after launch?
+<span>+</span>
+</div>
+<div class="faq-answer">
+Yes. We help with small fixes and updates.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+How can I contact support?
+<span>+</span>
+</div>
+<div class="faq-answer">
+You can contact us via WhatsApp or email.
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* TOGGLE FAQ */
+
+function toggleFAQ(el){
+
+let answer = el.nextElementSibling
+
+answer.style.display =
+answer.style.display === "block"
+? "none"
+: "block"
+
+}
+
+/* CATEGORY SWITCH */
+
+function showCategory(id,btn){
+
+document.querySelectorAll(".faq-group").forEach(g=>{
+g.style.display="none"
+})
+
+document.getElementById(id).style.display="block"
+
+document.querySelectorAll(".cat-btn").forEach(b=>{
+b.classList.remove("active")
+})
+
+btn.classList.add("active")
+
+}
+
+</script>
+
+</body>
+
+</html>
