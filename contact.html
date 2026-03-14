@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contact | KnowMore</title>
+<title>Contact | Knovalab</title>
 
 <style>
 
@@ -204,17 +204,7 @@ flex-direction:column;
 
 <!-- NAVBAR -->
 
-<nav>
-
-<div class="logo">KnowMore</div>
-
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="index.html#services">Services</a>
-<a href="pricing.html">Pricing</a>
-<a href="faq.html">FAQ</a>
-<a href="contact.html">Contact</a>
-</div>
+<div id="navbar"></div>
 
 <a href="demo.html" class="buy-btn">Book Free Demo</a>
 
@@ -298,7 +288,7 @@ flex-direction:column;
 <div class="footer-grid">
 
 <div>
-<h4>KnowMore</h4>
+<h4>Knovalab</h4>
 <p>Modern websites for local businesses.</p>
 </div>
 
@@ -318,10 +308,18 @@ flex-direction:column;
 </div>
 
 <div class="copyright">
-© 2026 KnowMore
+© 2026 Knovalab
 </div>
 
 </footer>
+  
+  <script>
+fetch('navbar.html')
+.then(res => res.text())
+.then(data => {
+document.getElementById('navbar').innerHTML = data;
+});
+</script>
 
 </body>
 </html>
