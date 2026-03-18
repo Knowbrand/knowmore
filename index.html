@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Knovalab</title>
 
 <style>
 
 /* GLOBAL */
-
 *{
 margin:0;
 padding:0;
@@ -23,36 +19,11 @@ html{
 scroll-behavior:smooth;
 }
 
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-
 body{
-background: url('bg.jpg') center/cover no-repeat fixed;
+background:linear-gradient(135deg,#f3f3f3,#e8e8e8,#fafafa);
+color:#111;
 }
 
-opacity:0.5;
-
-z-index:-2;
-}
-
-body::after{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-
-background:rgba(255,255,255,0.7);
-
-z-index:-1;
-}
-  
 .hero-btn{
 background:black;
 color:white;
@@ -108,6 +79,7 @@ border-radius:30px;
 text-decoration:none;
 font-size:14px;
 }
+
 .back-btn:hover{
 opacity:0.8;
 }
@@ -366,8 +338,6 @@ display:none;
 
 @media(max-width:768px){
 
-/* HERO */
-
 .hero h1{
 font-size:40px;
 }
@@ -376,8 +346,6 @@ font-size:40px;
 flex-direction:column;
 }
 
-/* NAVBAR MOBILE */
-
 nav{
 padding:18px 6%;
 }
@@ -385,8 +353,6 @@ padding:18px 6%;
 .logo{
 font-size:20px;
 }
-
-/* hide links on phone */
 
 .nav-links{
 display:none;
@@ -402,13 +368,9 @@ padding:25px 0;
 box-shadow:0 10px 20px rgba(0,0,0,0.08);
 }
 
-/* show menu when active */
-
 .nav-links.active{
 display:flex;
 }
-
-/* hamburger */
 
 .menu-toggle{
 display:block;
@@ -416,23 +378,18 @@ font-size:26px;
 cursor:pointer;
 }
 
-/* move demo button */
-
 .demo-btn{
 padding:8px 16px;
 font-size:13px;
 }
-
-/* PORTFOLIO */
 
 .port-card{
 width:90%;
 }
 
 }
-  
-</style>
 
+</style>
 </head>
 
 <body>
@@ -440,12 +397,12 @@ width:90%;
 <div id="navbar"></div>
 
 <section class="hero">
-
 <h1>
 Modern Websites<br>
 for Modern Businesses
 </h1>
-<p> By Knovalab</p>
+
+<p>By Knovalab</p>
 
 <div class="hero-buttons">
 <a href="/pricing" class="hero-btn">View Pricing</a>
@@ -453,15 +410,12 @@ for Modern Businesses
 </div>
 
 <a href="#services" class="scroll-arrow">↓</a>
-
 </section>
 
 <section id="services">
-
 <h2>Services</h2>
 
 <div class="services-grid">
-
 <div class="service-card">Business Websites</div>
 <div class="service-card">Restaurant Websites</div>
 <div class="service-card">Salon Websites</div>
@@ -470,13 +424,10 @@ for Modern Businesses
 <div class="service-card">Portfolio Websites</div>
 <div class="service-card">Startup Websites</div>
 <div class="service-card">Local Business Websites</div>
-
 </div>
-
 </section>
 
 <section id="portfolio">
-
 <h2>Our Work</h2>
 
 <div class="portfolio-grid">
@@ -496,11 +447,9 @@ for Modern Businesses
 </div>
 
 </div>
-
 </section>
 
 <section id="faq">
-
 <h2>FAQ</h2>
 
 <div class="faq">
@@ -555,74 +504,16 @@ for Modern Businesses
 <p>Click Book Demo or chat via WhatsApp.</p>
 </div>
 
-<!-- NEW FAQS -->
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Do you provide domain setup?</h4>
-<p>Yes, we help you connect your domain to your website.</p>
 </div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Can you redesign my existing website?</h4>
-<p>Yes. We can improve the design and performance.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Do you add images and content?</h4>
-<p>Yes, we help structure the website content.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Can I update the website later?</h4>
-<p>Yes. The code is simple and editable.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Is my website fast?</h4>
-<p>Yes. We optimize for fast loading speeds.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Do you support WhatsApp chat?</h4>
-<p>Yes. WhatsApp buttons can be added.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Can my site show photos?</h4>
-<p>Yes. We can add image galleries.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Do you provide support after launch?</h4>
-<p>Yes. We help with updates and fixes.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Can you add booking forms?</h4>
-<p>Yes. Appointment or contact forms can be added.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Can my website grow later?</h4>
-<p>Yes. We can add pages and features anytime.</p>
-</div>
-
-</div>
-
 </section>
 
 <section id="contact" class="contact">
-
 <h2>Contact</h2>
-
 <p>Phone: +91 9167878131</p>
-
 <a href="https://wa.me/919167878131">Chat on WhatsApp</a>
-
 </section>
 
 <footer>
-
 <div class="footer-grid">
 
 <div>
@@ -648,9 +539,8 @@ for Modern Businesses
 <div class="copyright">
 © 2026 Knovalab
 </div>
-
 </footer>
-  
+
 <script>
 fetch('/navbar.html')
 .then(res => res.text())
@@ -658,9 +548,8 @@ fetch('/navbar.html')
 document.getElementById('navbar').innerHTML = data;
 });
 </script>
-  
-<script>
 
+<script>
 function toggleFAQ(el){
 let p=el.nextElementSibling
 p.style.display=p.style.display==="block"?"none":"block"
@@ -669,7 +558,6 @@ p.style.display=p.style.display==="block"?"none":"block"
 function toggleMenu(){
 document.querySelector(".nav-links").classList.toggle("active")
 }
-
 </script>
 
 </body>
