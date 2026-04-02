@@ -200,6 +200,19 @@ color:black;
 margin-top:20px;
 }
 
+/* ================= FOOTER ================= */
+footer{
+background:#111;
+color:white;
+padding:40px 10%;
+text-align:center;
+font-size:14px;
+}
+
+footer p{
+opacity:0.6;
+}
+
 /* ================= MOBILE ================= */
 @media(max-width:768px){
 
@@ -222,14 +235,8 @@ transform:none;
 
 <body>
 
-<!-- SHARED NAVBAR -->
-<script>
-fetch('/navbar.html')
-.then(res => res.text())
-.then(data => {
-  document.getElementById('navbar').innerHTML = data;
-});
-</script>
+<!-- NAVBAR LOAD -->
+<div id="navbar"></div>
 
 <!-- HERO -->
 <section class="hero">
@@ -259,32 +266,16 @@ attract customers, and grow consistently online.
 <p>Perfect for businesses ready to build a strong digital presence.</p>
 
 <div class="grid">
-<div class="card">
-<h3>Local Businesses</h3>
-<p>Shops, clinics, service providers wanting more walk-ins and calls.</p>
-</div>
-
-<div class="card">
-<h3>Startups</h3>
-<p>Launch your brand professionally from day one.</p>
-</div>
-
-<div class="card">
-<h3>Consultants</h3>
-<p>Personal brand websites that convert visitors into inquiries.</p>
-</div>
-
-<div class="card">
-<h3>SMEs</h3>
-<p>Growing companies ready to scale their digital presence.</p>
-</div>
+<div class="card"><h3>Local Businesses</h3><p>Shops, clinics, service providers wanting more walk-ins and calls.</p></div>
+<div class="card"><h3>Startups</h3><p>Launch your brand professionally from day one.</p></div>
+<div class="card"><h3>Consultants</h3><p>Personal brand websites that convert visitors into inquiries.</p></div>
+<div class="card"><h3>SMEs</h3><p>Growing companies ready to scale their digital presence.</p></div>
 </div>
 </section>
 
 <!-- FEATURES -->
 <section>
 <h2>What Your Website Includes</h2>
-
 <div class="grid">
 <div class="card"><h3>Modern UI Design</h3><p>Clean layout built for professionalism.</p></div>
 <div class="card"><h3>Mobile Optimization</h3><p>Looks perfect on every screen size.</p></div>
@@ -298,7 +289,6 @@ attract customers, and grow consistently online.
 <!-- BENEFITS -->
 <section>
 <h2>What You Actually Get</h2>
-
 <div class="grid">
 <div class="card"><h3>More Leads</h3><p>Your website works 24/7 for you.</p></div>
 <div class="card"><h3>Higher Trust</h3><p>Customers take you seriously.</p></div>
@@ -310,7 +300,6 @@ attract customers, and grow consistently online.
 <!-- PROCESS -->
 <section>
 <h2>Our Process</h2>
-
 <div class="process">
 <div class="step"><h3>1. Consultation</h3><p>Understanding your goals.</p></div>
 <div class="step"><h3>2. Design</h3><p>Custom layout for your brand.</p></div>
@@ -322,7 +311,6 @@ attract customers, and grow consistently online.
 <!-- PORTFOLIO PREVIEW -->
 <section>
 <h2>What Your Website Could Include</h2>
-
 <div class="grid">
 <div class="card"><h3>Hero Section</h3><p>Strong headline + CTA.</p></div>
 <div class="card"><h3>Services Section</h3><p>Clear explanation of offerings.</p></div>
@@ -334,9 +322,7 @@ attract customers, and grow consistently online.
 <!-- PRICING -->
 <section id="pricing">
 <h2>Starting Investment</h2>
-
 <div class="grid">
-
 <div class="card pricing-card">
 <h3>Starter</h3>
 <p class="price">₹7,999</p>
@@ -357,11 +343,10 @@ attract customers, and grow consistently online.
 <p>Advanced Features & Scaling Support</p>
 <a href="../demo/" class="btn secondary">Contact Us</a>
 </div>
-
 </div>
 </section>
 
-<!-- WHY CHOOSE US -->
+<!-- WHY US -->
 <section class="dark-section">
 <h2>Why Choose Knovalab?</h2>
 <p>
@@ -398,25 +383,21 @@ Fast turnaround. Clean design. Real results.
 <a href="../demo/" class="btn">Book Free Demo</a>
 </section>
 
-<!-- SHARED FOOTER -->
-<div id="footer"></div>
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Knovalab. All rights reserved.</p>
+</footer>
 
 <script>
 fetch('../navbar.html')
 .then(res => res.text())
 .then(data => {
-  document.getElementById('navbar').innerHTML = data;
-});
-
-fetch('../footer.html')
-.then(res => res.text())
-.then(data => {
-  document.getElementById('footer').innerHTML = data;
+document.getElementById('navbar').innerHTML = data;
 });
 
 function toggleFAQ(element){
-  let answer = element.querySelector('.faq-answer');
-  answer.style.display = answer.style.display === "block" ? "none" : "block";
+let answer = element.querySelector('.faq-answer');
+answer.style.display = answer.style.display === "block" ? "none" : "block";
 }
 </script>
 
