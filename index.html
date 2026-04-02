@@ -174,6 +174,26 @@ border-radius:15px;
 backdrop-filter:blur(10px);
 }
 
+.service-link{
+text-decoration:none;
+color:inherit;
+display:block;
+}
+
+.service-card{
+padding:25px;
+background:rgba(255,255,255,0.6);
+border-radius:15px;
+backdrop-filter:blur(10px);
+transition:0.3s;
+cursor:pointer;
+}
+
+.service-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 40px rgba(0,0,0,0.1);
+}
+
 /* PORTFOLIO */
 
 .portfolio-grid{
@@ -421,14 +441,39 @@ for Modern Businesses
 <h2>Services</h2>
 
 <div class="services-grid">
-<div class="service-card">Business Websites</div>
-<div class="service-card">Restaurant Websites</div>
-<div class="service-card">Salon Websites</div>
-<div class="service-card">Clothing Store Sites</div>
-<div class="service-card">Landing Pages</div>
-<div class="service-card">Portfolio Websites</div>
-<div class="service-card">Startup Websites</div>
-<div class="service-card">Local Business Websites</div>
+
+<a href="services/business-websites.html" class="service-link">
+  <div class="service-card">Business Websites</div>
+</a>
+
+<a href="services/restaurant-websites.html" class="service-link">
+  <div class="service-card">Restaurant Websites</div>
+</a>
+
+<a href="services/salon-websites.html" class="service-link">
+  <div class="service-card">Salon Websites</div>
+</a>
+
+<a href="services/clothing-store-sites.html" class="service-link">
+  <div class="service-card">Clothing Store Sites</div>
+</a>
+
+<a href="services/landing-pages.html" class="service-link">
+  <div class="service-card">Landing Pages</div>
+</a>
+
+<a href="services/portfolio-websites.html" class="service-link">
+  <div class="service-card">Portfolio Websites</div>
+</a>
+
+<a href="services/startup-websites.html" class="service-link">
+  <div class="service-card">Startup Websites</div>
+</a>
+
+<a href="services/local-business-websites.html" class="service-link">
+  <div class="service-card">Local Business Websites</div>
+</a>
+
 </div>
 </section>
 
