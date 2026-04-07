@@ -552,11 +552,35 @@ We build fast, premium, mobile-first websites for businesses that want to grow.
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-fetch('/navbar.html')
+
+fetch('navbar.html')
 .then(res => res.text())
 .then(data => {
 document.getElementById('navbar').innerHTML = data;
+
+/* ===== Reinitialize Navbar JS After Load ===== */
+
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", function(){
+if(window.scrollY > 50){
+nav.classList.add("shrink");
+}else{
+nav.classList.remove("shrink");
+}
 });
+
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if(menuToggle){
+menuToggle.addEventListener("click", function(){
+navLinks.classList.toggle("active");
+});
+}
+
+});
+
 });
 
 function toggleFAQ(el){
