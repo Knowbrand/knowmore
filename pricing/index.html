@@ -10,202 +10,187 @@
 
 <style>
 
-/* RESET */
+/* ================= GLOBAL ================= */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:'Segoe UI', sans-serif;
 }
 
-/* PAGE */
+:root{
+--accent:#ff6a00;
+}
 
 body{
-background:#f3f3f3;
+background:#0f0f0f;
+color:white;
 min-height:100vh;
-color:#111;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 nav{
 width:100%;
-padding:20px 8%;
+padding:25px 10%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:white;
-border-bottom:1px solid #eee;
+background:#111;
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-font-size:20px;
-font-weight:bold;
+font-size:22px;
+font-weight:700;
 }
 
 .back-btn{
-background:black;
+background:var(--accent);
 color:white;
-padding:10px 20px;
+padding:10px 24px;
 border-radius:30px;
 text-decoration:none;
 font-size:14px;
-transition:0.2s;
+font-weight:600;
+transition:0.3s;
 }
 
 .back-btn:hover{
-background:#333;
+transform:translateY(-2px);
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 .header{
-margin-top:70px;
+margin-top:110px;
 text-align:center;
 }
 
 .header h1{
-font-size:34px;
-margin-bottom:18px;
+font-size:42px;
+margin-bottom:10px;
 }
 
-/* TOGGLE */
-
-.toggle{
-display:inline-flex;
-background:white;
-border-radius:20px;
-padding:6px;
-box-shadow:0 4px 15px rgba(0,0,0,0.05);
+.header p{
+opacity:0.7;
 }
 
-.toggle span{
-padding:6px 14px;
-font-size:13px;
-border-radius:15px;
-cursor:pointer;
-}
-
-.toggle span:first-child{
-background:#ececec;
-}
-
-/* PRICING CONTAINER */
+/* ================= PRICING ================= */
 
 .pricing{
-margin-top:50px;
+margin-top:70px;
 display:flex;
-gap:35px;
+gap:40px;
 flex-wrap:wrap;
 justify-content:center;
-padding-bottom:80px;
+padding-bottom:100px;
 }
 
-/* CARD */
+/* ================= CARD ================= */
 
 .card{
-background:white;
-width:300px;
-padding:30px;
-border-radius:18px;
-box-shadow:0 15px 40px rgba(0,0,0,0.08);
+background:#1a1a1a;
+width:320px;
+padding:35px;
+border-radius:22px;
+border:1px solid #222;
+transition:0.35s;
 text-align:center;
-transition:all 0.35s ease;
+position:relative;
 }
-
-/* HOVER ANIMATION */
 
 .card:hover{
-transform:translateY(-12px);
-box-shadow:0 25px 60px rgba(0,0,0,0.15);
+transform:translateY(-10px);
+border-color:var(--accent);
+box-shadow:0 25px 60px rgba(0,0,0,0.4);
 }
-
-/* DESCRIPTION */
 
 .desc{
-font-size:13px;
+font-size:14px;
 opacity:0.7;
-margin-top:6px;
+margin-top:8px;
 }
 
-/* PRICE BOX */
-
 .price-box{
-margin-top:22px;
-border:1px solid #eee;
-padding:16px;
-border-radius:10px;
+margin-top:25px;
+padding:18px;
+border-radius:12px;
+background:#111;
+border:1px solid #222;
 }
 
 .price{
-font-size:32px;
-font-weight:bold;
+font-size:38px;
+font-weight:700;
+color:var(--accent);
 }
 
-/* BUTTON */
+/* ================= BUTTON ================= */
 
 .btn{
 display:block;
-margin-top:12px;
-background:#eaeaea;
-padding:10px;
-border-radius:8px;
+margin-top:15px;
+background:var(--accent);
+padding:12px;
+border-radius:10px;
 text-decoration:none;
-color:#111;
-font-size:14px;
-transition:0.2s;
+color:white;
+font-weight:600;
+transition:0.3s;
 }
 
 .btn:hover{
-background:#dcdcdc;
+transform:translateY(-3px);
 }
 
-/* FEATURES */
+/* ================= FEATURES ================= */
 
 ul{
-margin-top:20px;
+margin-top:25px;
 list-style:none;
 text-align:left;
 }
 
 li{
-margin:10px 0;
+margin:12px 0;
 font-size:14px;
+opacity:0.85;
 }
 
-/* MIDDLE CARD */
+/* ================= HIGHLIGHT CARD ================= */
 
 .highlight{
-padding:0;
-overflow:hidden;
-transform:scale(1.05);
+transform:scale(1.08);
+border:1px solid var(--accent);
+box-shadow:0 0 25px rgba(255,106,0,0.15);
 }
 
-/* DARK TOP */
-
 .highlight-top{
-background:#1b1b1b;
+background:var(--accent);
 color:white;
-padding:25px;
+padding:28px;
+border-radius:22px 22px 0 0;
 }
 
 .highlight-body{
-padding:30px;
+padding:35px;
 }
 
-/* MIDDLE BUTTON */
-
-.highlight .btn{
-background:black;
+.badge{
+position:absolute;
+top:-12px;
+right:20px;
+background:var(--accent);
 color:white;
+padding:6px 12px;
+font-size:12px;
+border-radius:20px;
+font-weight:600;
 }
 
-.highlight .btn:hover{
-background:#333;
-}
-
-/* MOBILE */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:768px){
 
@@ -220,37 +205,39 @@ transform:none;
 
 }
 
+/* ================= FOOTER ================= */
+
 .footer{
-width:100%;
-background:#111;
+background:#0b0b0b;
 color:white;
 text-align:center;
-padding:60px 20px;
-margin-top:60px;
+padding:80px 20px;
+margin-top:80px;
+border-top:1px solid rgba(255,255,255,0.05);
 }
 
 .footer h2{
-font-size:26px;
-margin-bottom:20px;
+font-size:32px;
+margin-bottom:25px;
 }
 
 .footer-btn{
 display:inline-block;
-background:white;
-color:#111;
-padding:12px 26px;
+background:var(--accent);
+color:white;
+padding:14px 32px;
 border-radius:30px;
 text-decoration:none;
-font-size:14px;
-transition:0.25s;
+font-weight:600;
+transition:0.3s;
 }
 
 .footer-btn:hover{
-background:#ddd;
+transform:translateY(-3px);
 }
 
 .footer-copy{
-margin-top:30px;
+margin-top:35px;
 font-size:13px;
 opacity:0.6;
 }
@@ -262,36 +249,26 @@ opacity:0.6;
 <body>
 
 <nav>
-
 <div class="logo">Knovalab</div>
-
-<a href="/" class="back-btn">Home</a>
-
+<a href="../" class="back-btn">Home</a>
 </nav>
 
 <div class="header">
-
 <h1>Choose your plan</h1>
-
+<p>Flexible pricing for businesses of all sizes.</p>
+</div>
 
 <section class="pricing">
 
 <!-- BASIC -->
-
 <div class="card">
 
 <h3>Basic</h3>
-
-<p class="desc">
-Perfect for small businesses starting online.
-</p>
+<p class="desc">Perfect for small businesses starting online.</p>
 
 <div class="price-box">
-
 <div class="price">₹2999</div>
-
-<a href="/demo" class="btn">Book Free Demo</a>
-
+<a href="../demo/" class="btn">Book Free Demo</a>
 </div>
 
 <ul>
@@ -305,27 +282,20 @@ Perfect for small businesses starting online.
 </div>
 
 <!-- STANDARD -->
-
 <div class="card highlight">
 
+<div class="badge">Most Popular</div>
+
 <div class="highlight-top">
-
 <h3>Standard</h3>
-
-<p class="desc">
-Best for growing businesses
-</p>
-
+<p class="desc">Best for growing businesses</p>
 </div>
 
 <div class="highlight-body">
 
 <div class="price-box">
-
 <div class="price">₹4999</div>
-
-<a href="/demo" class="btn">Book Free Demo</a>
-
+<a href="../demo/" class="btn">Book Free Demo</a>
 </div>
 
 <ul>
@@ -341,21 +311,14 @@ Best for growing businesses
 </div>
 
 <!-- PREMIUM -->
-
 <div class="card">
 
 <h3>Premium</h3>
-
-<p class="desc">
-Full custom website solution
-</p>
+<p class="desc">Full custom website solution</p>
 
 <div class="price-box">
-
 <div class="price">₹5999</div>
-
-<a href="/demo" class="btn">Book Free Demo</a>
-
+<a href="../demo/" class="btn">Book Free Demo</a>
 </div>
 
 <ul>
@@ -374,7 +337,7 @@ Full custom website solution
 
 <h2>Ready to get your website?</h2>
 
-<a href="/demo/" class="footer-btn">Book Free Demo</a>
+<a href="../demo/" class="footer-btn">Book Free Demo</a>
 
 <p class="footer-copy">© 2026 Knovalab. All rights reserved.</p>
 
