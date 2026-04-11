@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Pricing | Knovalab</title>
 
 <style>
@@ -26,7 +23,6 @@ font-family:'Segoe UI', sans-serif;
 body{
 background:#0f0f0f;
 color:white;
-min-height:100vh;
 }
 
 /* ================= NAVBAR ================= */
@@ -49,7 +45,7 @@ font-weight:700;
 .back-btn{
 background:var(--accent);
 color:white;
-padding:10px 24px;
+padding:10px 22px;
 border-radius:30px;
 text-decoration:none;
 font-size:14px;
@@ -64,13 +60,13 @@ transform:translateY(-2px);
 /* ================= HEADER ================= */
 
 .header{
-margin-top:110px;
+margin-top:100px;
 text-align:center;
 }
 
 .header h1{
-font-size:42px;
-margin-bottom:10px;
+font-size:40px;
+margin-bottom:8px;
 }
 
 .header p{
@@ -80,114 +76,99 @@ opacity:0.7;
 /* ================= PRICING ================= */
 
 .pricing{
-margin-top:70px;
+margin-top:60px;
 display:flex;
-gap:40px;
+gap:35px;
 flex-wrap:wrap;
 justify-content:center;
-padding-bottom:100px;
+padding-bottom:80px;
 }
 
 /* ================= CARD ================= */
 
 .card{
 background:#1a1a1a;
-width:320px;
-padding:35px;
-border-radius:22px;
+width:300px;
+padding:28px;
+border-radius:20px;
 border:1px solid #222;
-transition:0.35s;
+transition:0.3s;
 text-align:center;
-position:relative;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
 }
 
 .card:hover{
-transform:translateY(-10px);
-border-color:var(--accent);
-box-shadow:0 25px 60px rgba(0,0,0,0.4);
+transform:translateY(-6px);
+border-color:#333;
+}
+
+/* TITLE + DESC */
+
+.card h3{
+margin-bottom:6px;
 }
 
 .desc{
-font-size:14px;
-opacity:0.7;
-margin-top:8px;
+font-size:13px;
+opacity:0.6;
+margin-bottom:18px;
 }
 
+/* PRICE BOX */
+
 .price-box{
-margin-top:25px;
-padding:18px;
-border-radius:12px;
-background:#111;
-border:1px solid #222;
+margin-bottom:18px;
 }
 
 .price{
-font-size:38px;
+font-size:34px;
 font-weight:700;
 color:var(--accent);
+margin-bottom:10px;
 }
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 
 .btn{
 display:block;
-margin-top:15px;
 background:var(--accent);
-padding:12px;
-border-radius:10px;
+padding:10px;
+border-radius:8px;
 text-decoration:none;
 color:white;
+font-size:14px;
 font-weight:600;
 transition:0.3s;
 }
 
 .btn:hover{
-transform:translateY(-3px);
+transform:translateY(-2px);
 }
 
-/* ================= FEATURES ================= */
+/* FEATURES */
 
 ul{
-margin-top:25px;
+margin-top:10px;
 list-style:none;
 text-align:left;
 }
 
 li{
-margin:12px 0;
-font-size:14px;
-opacity:0.85;
+margin:8px 0;
+font-size:13px;
+opacity:0.8;
 }
 
-/* ================= HIGHLIGHT CARD ================= */
+/* ================= HIGHLIGHT ================= */
 
 .highlight{
-transform:scale(1.08);
-border:1px solid var(--accent);
-box-shadow:0 0 25px rgba(255,106,0,0.15);
+border:1px solid rgba(255,106,0,0.4);
 }
 
-.highlight-top{
-background:var(--accent);
+.highlight h3{
 color:white;
-padding:28px;
-border-radius:22px 22px 0 0;
-}
-
-.highlight-body{
-padding:35px;
-}
-
-.badge{
-position:absolute;
-top:-12px;
-right:20px;
-background:var(--accent);
-color:white;
-padding:6px 12px;
-font-size:12px;
-border-radius:20px;
-font-weight:600;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -199,10 +180,6 @@ flex-direction:column;
 align-items:center;
 }
 
-.highlight{
-transform:none;
-}
-
 }
 
 /* ================= FOOTER ================= */
@@ -211,21 +188,21 @@ transform:none;
 background:#0b0b0b;
 color:white;
 text-align:center;
-padding:80px 20px;
-margin-top:80px;
+padding:70px 20px;
+margin-top:60px;
 border-top:1px solid rgba(255,255,255,0.05);
 }
 
 .footer h2{
-font-size:32px;
-margin-bottom:25px;
+font-size:28px;
+margin-bottom:20px;
 }
 
 .footer-btn{
 display:inline-block;
 background:var(--accent);
 color:white;
-padding:14px 32px;
+padding:12px 26px;
 border-radius:30px;
 text-decoration:none;
 font-weight:600;
@@ -233,17 +210,16 @@ transition:0.3s;
 }
 
 .footer-btn:hover{
-transform:translateY(-3px);
+transform:translateY(-2px);
 }
 
 .footer-copy{
-margin-top:35px;
+margin-top:25px;
 font-size:13px;
 opacity:0.6;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -262,7 +238,6 @@ opacity:0.6;
 
 <!-- BASIC -->
 <div class="card">
-
 <h3>Basic</h3>
 <p class="desc">Perfect for small businesses starting online.</p>
 
@@ -276,22 +251,14 @@ opacity:0.6;
 <li>✔ Mobile Responsive</li>
 <li>✔ Business Information</li>
 <li>✔ Google Maps Integration</li>
-<li>✔ WhatsApp Contact Button</li>
+<li>✔ WhatsApp Button</li>
 </ul>
-
 </div>
 
 <!-- STANDARD -->
 <div class="card highlight">
-
-<div class="badge">Most Popular</div>
-
-<div class="highlight-top">
 <h3>Standard</h3>
-<p class="desc">Best for growing businesses</p>
-</div>
-
-<div class="highlight-body">
+<p class="desc">Best for growing businesses.</p>
 
 <div class="price-box">
 <div class="price">₹4999</div>
@@ -300,21 +267,17 @@ opacity:0.6;
 
 <ul>
 <li>✔ Everything in Basic</li>
-<li>✔ Up to 4 Website Sections</li>
+<li>✔ Up to 4 Sections</li>
 <li>✔ Photo Gallery</li>
 <li>✔ Animations</li>
-<li>✔ Improved Design Layout</li>
+<li>✔ Better Layout</li>
 </ul>
-
-</div>
-
 </div>
 
 <!-- PREMIUM -->
 <div class="card">
-
 <h3>Premium</h3>
-<p class="desc">Full custom website solution</p>
+<p class="desc">Full custom website solution.</p>
 
 <div class="price-box">
 <div class="price">₹5999</div>
@@ -328,19 +291,14 @@ opacity:0.6;
 <li>✔ Unlimited Sections</li>
 <li>✔ Priority Changes</li>
 </ul>
-
 </div>
 
 </section>
 
 <footer class="footer">
-
 <h2>Ready to get your website?</h2>
-
 <a href="../demo/" class="footer-btn">Book Free Demo</a>
-
 <p class="footer-copy">© 2026 Knovalab. All rights reserved.</p>
-
 </footer>
 
 </body>
