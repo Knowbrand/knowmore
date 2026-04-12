@@ -520,6 +520,88 @@ We build fast, premium, mobile-first websites for businesses that want to grow.
 </section>
 <script>
 
+<!-- ================= FAQ ================= -->
+
+<section class="faq-section">
+<h2 class="section-title">Frequently Asked Questions</h2>
+
+<div class="faq">
+
+<div class="faq-item">
+<h4 onclick="toggleFAQ(this)">How long does it take?</h4>
+<p>Most websites are delivered within 2–5 days depending on scope and revisions.</p>
+</div>
+
+<div class="faq-item">
+<h4 onclick="toggleFAQ(this)">Do I own the website?</h4>
+<p>Yes. You receive full ownership of the website files and code once the project is completed.</p>
+</div>
+
+<div class="faq-item">
+<h4 onclick="toggleFAQ(this)">Will it work on mobile?</h4>
+<p>Absolutely. Every website we build is fully responsive and optimized for mobile devices.</p>
+</div>
+
+</div>
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact">
+<h2>Let’s Build Your Website</h2>
+<p>Phone: +91 9167878131</p>
+<a href="https://wa.me/919167878131">Chat on WhatsApp</a>
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h4>Knovalab</h4>
+<p>Premium websites for growing businesses.</p>
+</div>
+
+<div>
+<h4>Founders</h4>
+<p>Sidharth Gaikwad</p>
+<p>Mohammed Kaif</p>
+<p>Rishi Suryawanshi</p>
+</div>
+
+<div>
+<h4>Contact</h4>
+<p>+91 9167878131</p>
+<p>WhatsApp Available</p>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Knovalab
+</div>
+
+</footer>
+
+
+
+<!-- ================= CHAT WIDGET ================= -->
+
+<div class="chat-button" onclick="toggleChat()">Chat</div>
+
+<div class="chatbox" id="chatbox">
+<div class="chat-header">Knovalab Assistant</div>
+<div class="chat-messages" id="chatMessages">
+<div class="bot">Hi 👋 I can help you with pricing, timelines or booking a demo.</div>
+</div>
+</div>
+
 /* ================= NAVBAR LOAD ================= */
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -642,6 +724,16 @@ const walk = (x - startX) * 1.2;
 slider.scrollLeft = scrollLeft - walk;
 });
 
+}
+
+function toggleFAQ(el){
+let p = el.nextElementSibling;
+p.style.display = p.style.display === "block" ? "none" : "block";
+}
+
+function toggleChat(){
+const box = document.getElementById("chatbox");
+box.style.display = box.style.display === "flex" ? "none" : "flex";
 }
 
 </script>
