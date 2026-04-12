@@ -26,9 +26,9 @@ padding-top:90px;
 overflow-x:hidden;
 }
 
-section{ padding:110px 10%; }
+section{ padding:100px 10%; }
 
-h1,h2,h3{ font-weight:700; letter-spacing:-0.5px; }
+h1,h2,h3{ font-weight:700; }
 
 p{ opacity:0.75; }
 
@@ -38,22 +38,92 @@ p{ opacity:0.75; }
 --border:#222;
 }
 
-/* ================= FADE ================= */
+/* ================= NAVBAR ================= */
 
-.fade-in{
-opacity:0;
-transform:translateY(40px);
-transition:0.8s ease;
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#0f0f0f;
+padding:20px 10%;
+z-index:2000;
+transition:0.3s ease;
+border-bottom:1px solid #1a1a1a;
 }
-.fade-in.show{
+
+.navbar.shrink{
+padding:12px 10%;
+background:#0b0b0b;
+}
+
+.nav-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:20px;
+font-weight:700;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+opacity:0.8;
+transition:0.3s;
+}
+
+.nav-links a:hover{
 opacity:1;
-transform:translateY(0);
+color:var(--accent);
+}
+
+.nav-cta{
+background:var(--accent);
+padding:8px 18px;
+border-radius:20px;
+}
+
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+}
+
+/* MOBILE NAV */
+
+@media(max-width:900px){
+
+.nav-links{
+position:absolute;
+top:70px;
+right:10%;
+background:#1a1a1a;
+flex-direction:column;
+width:200px;
+padding:20px;
+border-radius:10px;
+display:none;
+}
+
+.nav-links.active{ display:flex; }
+
+.menu-toggle{ display:block; }
+
 }
 
 /* ================= HERO ================= */
 
 .hero{
-min-height:calc(100vh - 90px);
+min-height:calc(90vh - 90px);
 display:flex;
 align-items:center;
 justify-content:space-between;
@@ -63,54 +133,43 @@ gap:60px;
 .hero-left{ flex:1; }
 
 .hero h1{
-font-size:54px;
+font-size:52px;
 margin-bottom:20px;
 }
 
 .hero p{
 font-size:18px;
-margin-bottom:35px;
+margin-bottom:30px;
 max-width:500px;
 }
 
 .hero-buttons{
 display:flex;
 gap:15px;
-flex-wrap:wrap;
 }
 
 .btn-primary{
 background:var(--accent);
-color:white;
-padding:15px 30px;
+padding:14px 28px;
 border-radius:40px;
 text-decoration:none;
+color:white;
 font-weight:600;
-transition:0.3s ease;
-}
-.btn-primary:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 30px rgba(255,106,0,0.3);
 }
 
 .btn-secondary{
 border:1px solid var(--border);
-color:white;
-padding:15px 30px;
+padding:14px 28px;
 border-radius:40px;
 text-decoration:none;
-transition:0.3s ease;
-}
-.btn-secondary:hover{
-background:#1a1a1a;
-transform:translateY(-3px);
+color:white;
 }
 
 .hero-right{ flex:1; }
+
 .hero-right img{
 width:100%;
 border-radius:20px;
-box-shadow:0 20px 60px rgba(0,0,0,0.5);
 }
 
 /* ================= SERVICES ================= */
@@ -120,7 +179,7 @@ box-shadow:0 20px 60px rgba(0,0,0,0.5);
 .section-title{
 text-align:center;
 margin-bottom:60px;
-font-size:40px;
+font-size:38px;
 }
 
 .services-grid{
@@ -131,13 +190,14 @@ gap:30px;
 
 .service-card{
 background:var(--card);
-padding:30px;
-border-radius:20px;
+padding:25px;
+border-radius:18px;
 border:1px solid var(--border);
-transition:0.3s ease;
+transition:0.3s;
 }
+
 .service-card:hover{
-transform:translateY(-6px);
+transform:translateY(-5px);
 border-color:var(--accent);
 }
 
@@ -153,80 +213,79 @@ gap:40px;
 }
 
 .stat h3{
-font-size:45px;
+font-size:40px;
 color:var(--accent);
 }
 
-/* ================= PORTFOLIO SLIDER ================= */
+/* ================= PORTFOLIO ================= */
 
 .portfolio{ background:#141414; }
 
 .slider-wrapper{
-position:relative;
 overflow:hidden;
 }
 
 .portfolio-slider{
 display:flex;
-gap:20px;
+gap:25px;
 overflow-x:auto;
-scroll-snap-type:x mandatory;
 scroll-behavior:smooth;
+scroll-snap-type:x mandatory;
 padding-bottom:10px;
-cursor:grab;
 }
+
 .portfolio-slider::-webkit-scrollbar{ display:none; }
 
 .port-card{
-flex:0 0 300px;
+flex:0 0 48%;
 background:var(--card);
-border-radius:20px;
+border-radius:18px;
 border:1px solid var(--border);
-padding:18px;
+padding:15px;
 scroll-snap-align:start;
-transition:0.3s ease;
 }
-.port-card:hover{ transform:translateY(-6px); }
 
 .preview{
 width:100%;
-height:180px;
+height:160px;
 overflow:hidden;
 border-radius:12px;
-margin-bottom:15px;
+margin-bottom:10px;
 }
+
 .preview iframe{
 width:1200px;
 height:800px;
-transform:scale(0.23);
+transform:scale(0.20);
 transform-origin:top left;
 pointer-events:none;
 border:none;
 }
 
 .port-card a{
+font-size:14px;
 color:var(--accent);
 text-decoration:none;
-font-size:14px;
 }
 
 /* ================= FAQ ================= */
+
+.faq-section{ background:#0f0f0f; }
 
 .faq{ max-width:900px; margin:auto; }
 
 .faq-item{ margin-bottom:15px; }
 
 .faq-item h4{
-cursor:pointer;
 background:#1a1a1a;
 padding:15px;
 border-radius:10px;
+cursor:pointer;
 }
 
 .faq-item p{
 display:none;
 padding:12px;
-opacity:0.7;
 }
 
 /* ================= CONTACT ================= */
@@ -238,12 +297,12 @@ background:#141414;
 
 .contact a{
 display:inline-block;
-margin-top:25px;
+margin-top:20px;
 background:var(--accent);
-color:white;
-padding:15px 30px;
+padding:14px 28px;
 border-radius:30px;
 text-decoration:none;
+color:white;
 }
 
 /* ================= FOOTER ================= */
@@ -260,8 +319,6 @@ flex-wrap:wrap;
 gap:40px;
 }
 
-footer p{ opacity:0.6; margin:6px 0; }
-
 .copyright{
 text-align:center;
 margin-top:40px;
@@ -275,11 +332,9 @@ position:fixed;
 bottom:20px;
 right:20px;
 background:var(--accent);
-color:white;
-padding:14px 18px;
+padding:12px 18px;
 border-radius:40px;
 cursor:pointer;
-z-index:3000;
 }
 
 .chatbox{
@@ -291,7 +346,6 @@ background:#1a1a1a;
 border-radius:15px;
 display:none;
 flex-direction:column;
-z-index:3000;
 }
 
 .chat-header{
@@ -306,29 +360,42 @@ height:200px;
 overflow-y:auto;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:900px){
+
 .hero{ flex-direction:column; text-align:center; }
-.hero h1{ font-size:40px; }
+
 .stats-grid{ flex-direction:column; }
+
 .port-card{ flex:0 0 85%; }
+
 }
 
 </style>
 </head>
 <body>
 
-<div id="navbar"></div>
-
+<nav class="navbar">
+<div class="nav-container">
+<div class="logo">Knovalab</div>
+<div class="menu-toggle">&#9776;</div>
+<ul class="nav-links">
+<li><a href="#portfolio">Work</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#contact" class="nav-cta">Contact</a></li>
+</ul>
+</div>
+</nav>
 <!-- HERO -->
-<section class="hero fade-in">
+<section class="hero">
 <div class="hero-left">
 <h1>Websites Designed<br>To Turn Visitors<br>Into Customers.</h1>
 <p>We build fast, premium, mobile-first websites for businesses that want to grow.</p>
 <div class="hero-buttons">
 <a href="#portfolio" class="btn-primary">View Our Work</a>
-<a href="/demo/" class="btn-secondary">Book Free Consultation</a>
+<a href="#contact" class="btn-secondary">Book Free Consultation</a>
 </div>
 </div>
 <div class="hero-right">
@@ -337,22 +404,18 @@ overflow-y:auto;
 </section>
 
 <!-- SERVICES -->
-<section class="services fade-in">
+<section class="services" id="services">
 <h2 class="section-title">Our Services</h2>
 <div class="services-grid">
-
-<div class="service-card"><h3>Business Websites</h3><p>Professional websites built to generate trust and leads.</p></div>
-<div class="service-card"><h3>Restaurant Websites</h3><p>Showcase your menu and accept reservations online.</p></div>
-<div class="service-card"><h3>Salon Websites</h3><p>Highlight services and booking systems.</p></div>
-<div class="service-card"><h3>E-Commerce Stores</h3><p>Sell products online seamlessly.</p></div>
-<div class="service-card"><h3>Landing Pages</h3><p>High-converting single page websites.</p></div>
-<div class="service-card"><h3>Portfolio Websites</h3><p>Personal brand websites for creators.</p></div>
-
+<div class="service-card"><h3>Business Websites</h3><p>Professional websites built to generate trust.</p></div>
+<div class="service-card"><h3>Restaurant Websites</h3><p>Showcase menu and reservations.</p></div>
+<div class="service-card"><h3>Salon Websites</h3><p>Highlight services and booking.</p></div>
+<div class="service-card"><h3>E-Commerce</h3><p>Sell products with checkout.</p></div>
 </div>
 </section>
 
 <!-- STATS -->
-<section class="stats fade-in">
+<section class="stats">
 <div class="stats-grid">
 <div class="stat"><h3>2–5</h3><p>Days Delivery</p></div>
 <div class="stat"><h3>100%</h3><p>Mobile Optimized</p></div>
@@ -362,11 +425,10 @@ overflow-y:auto;
 </section>
 
 <!-- PORTFOLIO -->
-<section class="portfolio fade-in" id="portfolio">
+<section class="portfolio" id="portfolio">
 <h2 class="section-title">Our Work</h2>
-
 <div class="slider-wrapper">
-<div class="portfolio-slider" id="portfolioSlider">
+<div class="portfolio-slider">
 
 <div class="port-card">
 <div class="preview">
@@ -384,31 +446,39 @@ overflow-y:auto;
 <a href="https://knowbrand.github.io/Restaurant-Demo" target="_blank">Live Preview →</a>
 </div>
 
+<div class="port-card">
+<div class="preview">
+<iframe src="https://knowbrand.github.io/4utattoostudio/"></iframe>
+</div>
+<h3>Tattoo Demo 2</h3>
+<a href="https://knowbrand.github.io/4utattoostudio/" target="_blank">Live Preview →</a>
+</div>
+
 </div>
 </div>
 </section>
 
 <!-- FAQ -->
-<section class="fade-in">
+<section class="faq-section" id="faq">
 <h2 class="section-title">Frequently Asked Questions</h2>
 <div class="faq">
 <div class="faq-item">
 <h4 onclick="toggleFAQ(this)">How long does it take?</h4>
-<p>Most websites are delivered within 2–5 days.</p>
+<p>Usually delivered within 2–5 days.</p>
 </div>
 <div class="faq-item">
 <h4 onclick="toggleFAQ(this)">Do I own the website?</h4>
-<p>Yes. You receive full ownership.</p>
+<p>Yes. Full ownership after completion.</p>
 </div>
 <div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Will it work on mobile?</h4>
-<p>Absolutely. Fully responsive.</p>
+<h4 onclick="toggleFAQ(this)">Is it mobile friendly?</h4>
+<p>Yes. Fully responsive design.</p>
 </div>
 </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact fade-in">
+<section class="contact" id="contact">
 <h2>Let’s Build Your Website</h2>
 <p>Phone: +91 9167878131</p>
 <a href="https://wa.me/919167878131">Chat on WhatsApp</a>
@@ -438,57 +508,38 @@ overflow-y:auto;
 
 <!-- CHAT -->
 <div class="chat-button" onclick="toggleChat()">Chat</div>
+
 <div class="chatbox" id="chatbox">
 <div class="chat-header">Knovalab Assistant</div>
 <div class="chat-messages">
-<div>Hi 👋 I can help you with pricing, timelines or booking a demo.</div>
+<div>Hi 👋 I can help you with pricing or booking.</div>
 </div>
 </div>
 
 <script>
 
+/* Navbar */
+const navbar = document.querySelector(".navbar");
+window.addEventListener("scroll",()=>{
+if(window.scrollY>50){navbar.classList.add("shrink")}
+else{navbar.classList.remove("shrink")}
+});
+
+document.querySelector(".menu-toggle").onclick=function(){
+document.querySelector(".nav-links").classList.toggle("active");
+};
+
 /* FAQ */
 function toggleFAQ(el){
-let p = el.nextElementSibling;
-p.style.display = p.style.display === "block" ? "none" : "block";
+let p=el.nextElementSibling;
+p.style.display=p.style.display==="block"?"none":"block";
 }
 
 /* Chat */
 function toggleChat(){
-const box = document.getElementById("chatbox");
-box.style.display = box.style.display === "flex" ? "none" : "flex";
+let box=document.getElementById("chatbox");
+box.style.display=box.style.display==="flex"?"none":"flex";
 }
-
-/* Fade animation */
-const faders = document.querySelectorAll(".fade-in");
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
-observer.unobserve(entry.target);
-}
-});
-},{threshold:0.2});
-faders.forEach(el=>observer.observe(el));
-
-/* Slider Drag */
-const slider = document.getElementById("portfolioSlider");
-let isDown=false,startX,scrollLeft;
-
-slider.addEventListener("mousedown",e=>{
-isDown=true;
-startX=e.pageX-slider.offsetLeft;
-scrollLeft=slider.scrollLeft;
-});
-slider.addEventListener("mouseup",()=>isDown=false);
-slider.addEventListener("mouseleave",()=>isDown=false);
-slider.addEventListener("mousemove",e=>{
-if(!isDown) return;
-e.preventDefault();
-const x=e.pageX-slider.offsetLeft;
-const walk=(x-startX)*1.2;
-slider.scrollLeft=scrollLeft-walk;
-});
 
 </script>
 
