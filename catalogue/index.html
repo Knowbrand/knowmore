@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Knovalab | Premium Business Websites</title>
+<title>Pricing | Knovalab</title>
 
 <style>
-/* ================= GLOBAL ================= */
-
 *{
   margin:0;
   padding:0;
@@ -17,1155 +15,914 @@
 
 :root{
   --accent:#ff6a00;
-  --bg:#0f0f0f;
-  --bg-soft:#141414;
-  --bg-deep:#0b0b0b;
-  --card:#1a1a1a;
-  --border:#242424;
-  --text:#ffffff;
-  --muted:rgba(255,255,255,0.72);
-  --shadow:0 18px 55px rgba(0,0,0,0.35);
+  --bg:#0c0c0c;
+  --bg-soft:#121212;
+  --paper:#f4efe7;
+  --paper-2:#ece3d5;
+  --ink:#171717;
+  --muted:#5f574d;
+  --shadow:0 30px 80px rgba(0,0,0,0.34);
 }
-
-html{ scroll-behavior:smooth; }
 
 body{
   background:
-    radial-gradient(circle at top center, rgba(255,106,0,0.10), transparent 28%),
-    linear-gradient(180deg, #111 0%, #0b0b0b 100%);
-  color:var(--text);
-  line-height:1.6;
-  padding-top:90px;
+    radial-gradient(circle at top, rgba(255,106,0,0.08), transparent 24%),
+    linear-gradient(180deg, #111 0%, #090909 100%);
+  color:white;
+  min-height:100vh;
   overflow-x:hidden;
 }
 
-section{
-  padding:110px 10%;
-  position:relative;
-}
-
-h1,h2,h3,h4{
-  font-weight:700;
-  letter-spacing:-0.5px;
-}
-
-p{
-  color:var(--muted);
-}
-
-a{
-  color:inherit;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:18px;
-  font-size:clamp(30px, 4vw, 42px);
-}
-
-.section-subtitle{
-  text-align:center;
-  max-width:680px;
-  margin:0 auto 60px;
-  color:rgba(255,255,255,0.62);
-}
-
-/* ================= REVEAL ================= */
-
-.reveal{
-  opacity:0;
-  transform:translateY(28px);
-  transition:opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ================= NAVBAR ================= */
-
 nav{
-  position:fixed;
+  position:sticky;
   top:0;
-  left:0;
-  width:100%;
-  height:90px;
-  background:rgba(15,15,15,0.88);
+  z-index:1000;
+  height:86px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 10%;
-  z-index:5000;
-  transition:0.3s ease;
+  padding:0 8%;
+  background:rgba(12,12,12,0.88);
   backdrop-filter:blur(10px);
-  border-bottom:1px solid transparent;
-}
-
-nav h3{
-  font-size:22px;
-}
-
-nav.shrink{
-  height:72px;
-  background:rgba(11,11,11,0.94);
-  box-shadow:0 10px 30px rgba(0,0,0,0.35);
   border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
-.nav-links{
-  display:flex;
-  gap:30px;
+nav h3{
+  font-size:28px;
+  letter-spacing:-1px;
 }
 
-.nav-links a{
+.nav-right{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.nav-link{
   color:white;
   text-decoration:none;
-  font-weight:500;
-  position:relative;
-  transition:0.3s;
+  opacity:0.8;
 }
 
-.nav-links a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-8px;
-  width:0;
-  height:2px;
+.nav-btn{
   background:var(--accent);
+  color:white;
+  text-decoration:none;
+  padding:11px 22px;
+  border-radius:999px;
+  font-weight:600;
   transition:0.3s;
 }
 
-.nav-links a:hover{
-  color:var(--accent);
+.nav-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(255,106,0,0.25);
 }
-
-.nav-links a:hover::after{
-  width:100%;
-}
-
-.menu-toggle{
-  display:none;
-  font-size:24px;
-  cursor:pointer;
-}
-
-/* ================= HERO ================= */
 
 .hero{
-  min-height:calc(100vh - 90px);
-  display:grid;
-  grid-template-columns:1.1fr 0.9fr;
-  align-items:center;
-  gap:70px;
-  padding-top:40px;
-  padding-bottom:60px;
+  padding:48px 8% 24px;
+  text-align:center;
 }
 
-.hero-left{
-  position:relative;
-  z-index:2;
-}
-
-.hero-kicker{
+.hero span{
   display:inline-block;
-  margin-bottom:18px;
   color:var(--accent);
-  font-size:13px;
   text-transform:uppercase;
   letter-spacing:3px;
+  font-size:12px;
+  margin-bottom:12px;
 }
 
 .hero h1{
-  font-size:clamp(42px, 6vw, 68px);
+  font-size:clamp(32px, 5vw, 58px);
   line-height:0.95;
-  margin-bottom:22px;
-  max-width:640px;
+  text-transform:uppercase;
+  margin-bottom:12px;
 }
 
 .hero p{
-  font-size:18px;
-  margin-bottom:35px;
-  max-width:540px;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.btn-primary,
-.btn-secondary{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:15px 30px;
-  border-radius:40px;
-  text-decoration:none;
-  font-weight:600;
-  transition:0.3s ease;
-}
-
-.btn-primary{
-  background:var(--accent);
-  color:white;
-  box-shadow:0 14px 35px rgba(255,106,0,0.22);
-}
-
-.btn-primary:hover{
-  transform:translateY(-4px);
-  box-shadow:0 18px 40px rgba(255,106,0,0.30);
-}
-
-.btn-secondary{
-  border:1px solid var(--border);
-  color:white;
-  background:rgba(255,255,255,0.02);
-}
-
-.btn-secondary:hover{
-  background:#1a1a1a;
-  transform:translateY(-3px);
-}
-
-.hero-right{
-  position:relative;
-}
-
-.hero-right::before{
-  content:"";
-  position:absolute;
-  inset:-18px;
-  background:radial-gradient(circle, rgba(255,106,0,0.16), transparent 60%);
-  filter:blur(20px);
-  z-index:0;
-}
-
-.hero-card{
-  position:relative;
-  z-index:1;
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  border:1px solid rgba(255,255,255,0.06);
-  padding:14px;
-  border-radius:28px;
-  box-shadow:var(--shadow);
-  animation:floatCard 4.5s ease-in-out infinite;
-}
-
-.hero-right img{
-  width:100%;
-  display:block;
-  border-radius:20px;
-}
-
-.hero-badge{
-  position:absolute;
-  right:-18px;
-  bottom:30px;
-  background:rgba(18,18,18,0.92);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:18px;
-  padding:16px 18px;
-  box-shadow:0 16px 35px rgba(0,0,0,0.35);
-  z-index:2;
-}
-
-.hero-badge strong{
-  display:block;
-  color:var(--accent);
-  font-size:24px;
-  margin-bottom:4px;
-}
-
-.hero-badge span{
-  font-size:13px;
-  color:rgba(255,255,255,0.7);
-}
-
-@keyframes floatCard{
-  0%,100%{ transform:translateY(0); }
-  50%{ transform:translateY(-8px); }
-}
-
-/* ================= SERVICES ================= */
-
-.services{
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0)),
-    var(--bg-soft);
-}
-
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:24px;
-}
-
-.service-card{
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
-  padding:30px;
-  border-radius:22px;
-  border:1px solid var(--border);
-  transition:0.35s ease;
-  box-shadow:0 10px 25px rgba(0,0,0,0.18);
-}
-
-.service-card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(255,106,0,0.55);
-  box-shadow:0 18px 40px rgba(0,0,0,0.28);
-}
-
-.service-card h3{
-  margin-bottom:12px;
-}
-
-.service-card p{
-  font-size:15px;
-}
-
-/* ================= STATS ================= */
-
-.stats{
-  text-align:center;
-}
-
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:24px;
-}
-
-.stat{
-  background:rgba(255,255,255,0.02);
-  border:1px solid rgba(255,255,255,0.05);
-  border-radius:22px;
-  padding:30px 20px;
-  transition:0.3s ease;
-}
-
-.stat:hover{
-  transform:translateY(-6px);
-  border-color:rgba(255,106,0,0.45);
-}
-
-.stat h3{
-  font-size:42px;
-  color:var(--accent);
-  margin-bottom:8px;
-}
-
-.stat p{
-  color:rgba(255,255,255,0.66);
-}
-
-/* ================= PORTFOLIO ================= */
-
-.portfolio{
-  background:var(--bg-soft);
-}
-
-.portfolio-wrap{
-  position:relative;
-}
-
-#portfolioSlider{
-  display:flex;
-  gap:20px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  padding-bottom:14px;
-  cursor:grab;
-  -ms-overflow-style:none;
-  scrollbar-width:none;
-}
-
-#portfolioSlider::-webkit-scrollbar{
-  display:none;
-}
-
-.portfolio-card{
-  flex:0 0 31%;
-  min-width:290px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  border-radius:22px;
-  border:1px solid var(--border);
-  padding:18px;
-  transition:0.35s ease;
-  box-shadow:0 10px 28px rgba(0,0,0,0.18);
-}
-
-.portfolio-card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(255,106,0,0.5);
-}
-
-.portfolio-preview{
-  height:170px;
-  overflow:hidden;
-  border-radius:14px;
-  margin-bottom:14px;
-  background:#111;
-}
-
-.portfolio-preview iframe{
-  width:1200px;
-  height:800px;
-  transform:scale(0.18);
-  transform-origin:top left;
-  border:none;
-  pointer-events:none;
-}
-
-.portfolio-card h3{
-  font-size:19px;
-  margin-bottom:6px;
-}
-
-.portfolio-card p{
-  font-size:14px;
-  margin-bottom:12px;
-}
-
-.portfolio-card a{
-  color:var(--accent);
-  text-decoration:none;
-  font-size:14px;
-  font-weight:600;
-}
-
-/* ================= FAQ ================= */
-
-.faq-section{
-  background:var(--bg);
-}
-
-.faq-list{
-  max-width:900px;
-  margin:auto;
-  display:grid;
-  gap:16px;
-}
-
-.faq-item{
-  border:1px solid rgba(255,255,255,0.06);
-  background:#171717;
-  border-radius:18px;
-  overflow:hidden;
-  transition:0.3s ease;
-}
-
-.faq-item:hover{
-  border-color:rgba(255,106,0,0.35);
-}
-
-.faq-question{
-  width:100%;
-  background:none;
-  color:white;
-  border:none;
-  text-align:left;
-  padding:20px 22px;
-  cursor:pointer;
-  font-size:17px;
-  font-weight:600;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.faq-question span:last-child{
-  color:var(--accent);
-  transition:0.3s ease;
-}
-
-.faq-item.active .faq-question span:last-child{
-  transform:rotate(45deg);
-}
-
-.faq-answer{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height 0.35s ease;
-}
-
-.faq-answer p{
-  padding:0 22px 22px;
-  color:rgba(255,255,255,0.7);
-}
-
-/* ================= CONTACT ================= */
-
-.contact-strip{
-  background:linear-gradient(180deg, #161616 0%, #111 100%);
-  text-align:center;
-}
-
-.contact-box{
   max-width:760px;
   margin:0 auto;
-  background:rgba(255,255,255,0.02);
-  border:1px solid rgba(255,255,255,0.06);
-  padding:48px 32px;
-  border-radius:26px;
-  box-shadow:var(--shadow);
+  color:rgba(255,255,255,0.7);
 }
 
-.contact-box h2{
-  font-size:clamp(28px, 4vw, 40px);
-  margin-bottom:12px;
+.catalogue{
+  padding:30px 4% 70px;
 }
 
-.contact-box p{
+.book-shell{
+  max-width:1380px;
+  margin:0 auto;
+}
+
+.book-controls{
+  display:flex;
+  justify-content:center;
+  gap:14px;
   margin-bottom:24px;
 }
 
-.contact-btn{
-  display:inline-block;
-  margin-top:10px;
-  background:var(--accent);
+.book-controls button{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
   color:white;
-  padding:15px 30px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
+  font-size:26px;
+  cursor:pointer;
   transition:0.3s;
 }
 
-.contact-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 35px rgba(255,106,0,0.28);
+.book-controls button:hover:not(:disabled){
+  color:var(--accent);
+  border-color:rgba(255,106,0,0.4);
+  transform:translateY(-2px);
 }
 
-/* ================= CTA FOOTER ================= */
-
-footer{
-  background:var(--bg-deep);
-  padding:100px 10%;
+.book-controls button:disabled{
+  opacity:0.3;
+  cursor:not-allowed;
 }
 
-.cta-box{
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
-  border:1px solid #222;
-  border-radius:28px;
-  padding:70px;
+.book-stage{
+  position:relative;
+  perspective:3000px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:820px;
+}
+
+.book-shadow{
+  position:absolute;
+  width:min(1100px, 88vw);
+  height:70px;
+  bottom:50px;
+  background:radial-gradient(circle, rgba(0,0,0,0.5), transparent 72%);
+  filter:blur(20px);
+}
+
+.book{
+  position:relative;
+  width:min(1100px, 88vw);
+  height:min(720px, 72vw);
+  min-height:620px;
+}
+
+.base-left,
+.base-right{
+  position:absolute;
+  top:0;
+  width:50%;
+  height:100%;
+  background:var(--paper);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.base-left{
+  left:0;
+  border-radius:24px 0 0 24px;
+  border-right:1px solid rgba(0,0,0,0.08);
+}
+
+.base-right{
+  right:0;
+  border-radius:0 24px 24px 0;
+  border-left:1px solid rgba(0,0,0,0.08);
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.04), transparent 10%),
+    var(--paper);
+}
+
+.spine{
+  position:absolute;
+  top:2%;
+  left:50%;
+  transform:translateX(-50%);
+  width:18px;
+  height:96%;
+  border-radius:18px;
+  background:linear-gradient(180deg, #1a1a1a 0%, #0b0b0b 100%);
+  box-shadow:inset 0 0 12px rgba(255,255,255,0.05);
+  z-index:50;
+}
+
+.paper{
+  position:absolute;
+  width:50%;
+  height:100%;
+  left:50%;
+  top:0;
+  transform-style:preserve-3d;
+  transform-origin:left;
+  transition:transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.paper.flipped{
+  transform:rotateY(-180deg);
+}
+
+.page{
+  position:absolute;
+  inset:0;
+  background:var(--paper);
+  color:var(--ink);
+  backface-visibility:hidden;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:40px 34px;
+}
+
+.page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.5), transparent 28%),
+    linear-gradient(180deg, rgba(255,255,255,0.12), transparent 22%);
+  pointer-events:none;
+}
+
+.front{
+  border-radius:0 24px 24px 0;
+  border-left:1px solid rgba(0,0,0,0.06);
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.035), transparent 11%),
+    var(--paper);
+}
+
+.back{
+  transform:rotateY(180deg);
+  border-radius:24px 0 0 24px;
+  border-right:1px solid rgba(0,0,0,0.06);
+  background:
+    linear-gradient(270deg, rgba(0,0,0,0.035), transparent 11%),
+    var(--paper-2);
+}
+
+.page-top{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:50px;
-  flex-wrap:wrap;
-  margin-bottom:80px;
-  box-shadow:var(--shadow);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:#7a7268;
+  position:relative;
+  z-index:2;
 }
 
-.cta-left h2{
-  font-size:34px;
-  margin-bottom:15px;
+.page-body{
+  position:relative;
+  z-index:2;
 }
 
-.cta-left p{
-  max-width:480px;
-  font-size:16px;
+.page-bottom{
+  position:relative;
+  z-index:2;
+  font-size:12px;
+  color:#7a7268;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
-.cta-button{
+.kicker{
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  margin-bottom:16px;
+}
+
+.big-title{
+  font-size:clamp(34px, 4vw, 58px);
+  line-height:0.92;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  max-width:380px;
+}
+
+.medium-title{
+  font-size:clamp(28px, 3vw, 42px);
+  line-height:0.94;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.page-copy{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.8;
+  max-width:370px;
+}
+
+.price{
+  font-size:52px;
+  font-weight:800;
+  line-height:1;
+  color:var(--accent);
+  margin:16px 0 18px;
+}
+
+.features{
+  list-style:none;
+  display:grid;
+  gap:10px;
+  margin-top:8px;
+}
+
+.features li{
+  padding-left:18px;
+  position:relative;
+  font-size:14px;
+  color:#2e2a25;
+}
+
+.features li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:8px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--accent);
+}
+
+.info-card{
+  margin-top:24px;
+  padding:18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.45);
+  border:1px solid rgba(0,0,0,0.06);
+}
+
+.info-card h4{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.info-card p{
+  font-size:14px;
+  color:var(--muted);
+}
+
+.mini-label{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#e8ddcd;
+  border:1px solid rgba(0,0,0,0.06);
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.visual-box{
+  height:220px;
+  border-radius:24px;
+  background:
+    linear-gradient(135deg, rgba(255,106,0,0.95), rgba(255,106,0,0.18)),
+    #202020;
+  position:relative;
+  overflow:hidden;
+  margin-top:20px;
+}
+
+.visual-box::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  right:-40px;
+  top:-50px;
+  background:rgba(255,255,255,0.16);
+}
+
+.visual-box::after{
+  content:"";
+  position:absolute;
+  width:230px;
+  height:230px;
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:50%;
+  left:-70px;
+  bottom:-100px;
+}
+
+.cta-box{
+  background:#e9dece;
+  border:1px solid rgba(0,0,0,0.06);
+  border-radius:22px;
+  padding:22px;
+  margin-top:24px;
+}
+
+.cta-box a{
+  display:inline-block;
+  margin-top:14px;
   background:var(--accent);
   color:white;
-  padding:18px 35px;
-  border-radius:50px;
   text-decoration:none;
+  padding:13px 22px;
+  border-radius:999px;
   font-weight:600;
-  font-size:16px;
-  transition:0.3s;
-  box-shadow:0 12px 30px rgba(255,106,0,0.18);
 }
 
-.cta-button:hover{
-  transform:translateY(-4px);
-  box-shadow:0 16px 38px rgba(255,106,0,0.3);
+.book-status{
+  text-align:center;
+  margin-top:24px;
+  color:rgba(255,255,255,0.7);
 }
 
-.footer-bottom{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:60px;
-  margin-bottom:50px;
-}
-
-.footer-brand h3{
-  margin-bottom:10px;
-  font-size:22px;
-}
-
-.footer-brand p{
-  max-width:250px;
-  color:rgba(255,255,255,0.6);
-}
-
-.footer-links{
-  display:flex;
-  gap:80px;
-  flex-wrap:wrap;
-}
-
-.footer-links h4{
-  margin-bottom:15px;
-}
-
-.footer-links p,
-.footer-links a{
-  display:block;
-  margin-bottom:8px;
-  text-decoration:none;
-  color:rgba(255,255,255,0.62);
-  font-size:14px;
-  transition:0.3s;
-}
-
-.footer-links a:hover{
+.book-status strong{
   color:var(--accent);
 }
 
-.footer-credit{
-  text-align:center;
-  color:rgba(255,255,255,0.4);
-  font-size:14px;
-  border-top:1px solid #222;
-  padding-top:30px;
-}
-
-/* ================= CHAT ================= */
-
-.chat-toggle{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:var(--accent);
-  color:white;
-  padding:14px 18px;
-  border-radius:40px;
-  cursor:pointer;
-  z-index:3000;
-  box-shadow:0 12px 28px rgba(255,106,0,0.22);
-  transition:0.3s ease;
-}
-
-.chat-toggle:hover{
-  transform:translateY(-3px);
-}
-
-#chatbox{
-  position:fixed;
-  bottom:80px;
-  right:20px;
-  width:300px;
-  background:#1a1a1a;
-  border-radius:18px;
+.mobile-stack{
   display:none;
-  flex-direction:column;
-  z-index:3000;
-  color:white;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.06);
-  box-shadow:var(--shadow);
 }
-
-.chat-head{
-  background:var(--accent);
-  padding:12px 14px;
-  font-weight:600;
-}
-
-.chat-body{
-  padding:15px;
-  height:200px;
-  overflow-y:auto;
-}
-
-.chat-message{
-  background:#222;
-  padding:10px;
-  border-radius:12px;
-  margin-bottom:10px;
-  font-size:14px;
-}
-
-/* ================= MOBILE ================= */
 
 @media(max-width:980px){
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .hero p,
-  .hero h1{
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .hero-buttons{
-    justify-content:center;
-  }
-
-  .hero-badge{
-    position:static;
-    margin-top:16px;
-    display:inline-block;
-  }
-
-  .stats-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .nav-links{
-    position:absolute;
-    top:90px;
-    right:6%;
-    background:#141414;
-    flex-direction:column;
-    width:220px;
-    padding:20px;
+  .book-stage{
     display:none;
-    border:1px solid rgba(255,255,255,0.06);
-    border-radius:18px;
+  }
+
+  .mobile-stack{
+    display:grid;
+    gap:18px;
+    max-width:760px;
+    margin:0 auto;
+  }
+
+  .mobile-page{
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:24px;
+    padding:28px 22px;
     box-shadow:var(--shadow);
   }
 
-  .nav-links.active{
-    display:flex;
+  .mobile-page p,
+  .mobile-page li{
+    color:var(--muted);
   }
 
-  .menu-toggle{
-    display:block;
+  .mobile-page ul{
+    list-style:none;
+    display:grid;
+    gap:10px;
+    margin-top:12px;
   }
 
-  nav,
-  section,
-  footer{
+  .mobile-page li{
+    padding-left:18px;
+    position:relative;
+  }
+
+  .mobile-page li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:9px;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--accent);
+  }
+}
+
+@media(max-width:700px){
+  nav{
+    padding:0 6%;
+  }
+
+  .hero{
     padding-left:6%;
     padding-right:6%;
   }
 }
-
-@media(max-width:768px){
-  body{
-    padding-top:80px;
-  }
-
-  nav{
-    height:80px;
-  }
-
-  .hero{
-    min-height:auto;
-    padding-top:20px;
-  }
-
-  .hero h1{
-    font-size:40px;
-  }
-
-  .stats-grid{
-    grid-template-columns:1fr;
-  }
-
-  .cta-box{
-    padding:40px;
-    text-align:center;
-  }
-
-  .footer-bottom{
-    flex-direction:column;
-  }
-
-  .footer-links{
-    gap:36px;
-  }
-
-  .contact-box{
-    padding:38px 22px;
-  }
-}
-
-@media(max-width:560px){
-  .hero-buttons{
-    flex-direction:column;
-  }
-
-  .btn-primary,
-  .btn-secondary,
-  .cta-button,
-  .contact-btn{
-    width:100%;
-  }
-
-  .portfolio-card{
-    min-width:85%;
-  }
-}
 </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
 <nav>
   <h3>Knovalab</h3>
-  <div class="nav-links">
-    <a href="/portfolio/">Portfolio</a>
-    <a href="/services/">Services</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/faq/">FAQ</a>
-    <a href="/contact/">Contact</a>
+  <div class="nav-right">
+    <a href="../" class="nav-link">Home</a>
+    <a href="../demo/" class="nav-btn">Book Free Demo</a>
   </div>
-  <div class="menu-toggle">☰</div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-left reveal">
-    <span class="hero-kicker">Premium Static Websites</span>
-    <h1>
-      Websites Designed<br>
-      To Turn Visitors<br>
-      Into Customers.
-    </h1>
-    <p>
-      We build fast, premium, mobile-first websites for businesses that want to grow.
-    </p>
-    <div class="hero-buttons">
-      <a href="#portfolio" class="btn-primary">View Our Work</a>
-      <a href="/demo/" class="btn-secondary">Book Free Consultation</a>
-    </div>
-  </div>
-
-  <div class="hero-right reveal">
-    <div class="hero-card">
-      <img src="https://i.pinimg.com/736x/8c/fd/a0/8cfda0a264b821b290a52f3092c00d0d.jpg" alt="Website showcase">
-    </div>
-    <div class="hero-badge">
-      <strong>2–5 Days</strong>
-      <span>Average delivery time</span>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services">
-  <h2 class="section-title reveal">Our Services</h2>
-  <p class="section-subtitle reveal">
-    Built for modern businesses that need strong design, clean structure, and fast delivery without unnecessary complexity.
+  <span>Pricing Catalogue</span>
+  <h1>Turn Through Our Website Packages</h1>
+  <p>
+    A premium catalogue experience for Knovalab pricing. Each page explains not just the plan,
+    but what goes into it and why it is priced that way.
   </p>
+</section>
 
-  <div class="services-grid">
-    <div class="service-card reveal">
-      <h3>Business Websites</h3>
-      <p>Professional websites built to generate trust and leads.</p>
+<section class="catalogue">
+  <div class="book-shell">
+    <div class="book-controls">
+      <button id="prevBtn" aria-label="Previous page">←</button>
+      <button id="nextBtn" aria-label="Next page">→</button>
     </div>
 
-    <div class="service-card reveal">
-      <h3>Restaurant Websites</h3>
-      <p>Showcase your menu, atmosphere, and reservations with a stronger digital presence.</p>
+    <div class="book-stage">
+      <div class="book-shadow"></div>
+
+      <div class="book" id="book">
+        <div class="base-left"></div>
+        <div class="base-right"></div>
+        <div class="spine"></div>
+
+        <div class="paper" id="paper1">
+          <div class="page front">
+            <div class="page-top">
+              <span>01</span>
+              <span>Cover</span>
+            </div>
+            <div class="page-body">
+              <div class="kicker">Knovalab Catalogue</div>
+              <h2 class="big-title">Pricing For Premium Static Websites</h2>
+              <p class="page-copy">
+                Clean packages. Clear value. Fast delivery. Built for businesses that want
+                a strong online presence without heavy systems or monthly complexity.
+              </p>
+              <div class="visual-box"></div>
+            </div>
+            <div class="page-bottom">Knovalab 2026</div>
+          </div>
+
+          <div class="page back">
+            <div class="page-top">
+              <span>02</span>
+              <span>About Pricing</span>
+            </div>
+            <div class="page-body">
+              <span class="mini-label">Why We Package It This Way</span>
+              <h2 class="medium-title">Simple Packages Make Decisions Easier</h2>
+              <p class="page-copy">
+                Our pricing is structured to match different business stages. Smaller brands can
+                start lean, growing brands can get better structure and visuals, and premium brands
+                can go for a more complete custom site.
+              </p>
+              <div class="info-card">
+                <h4>What stays consistent</h4>
+                <p>
+                  Every package focuses on speed, mobile responsiveness, clean code, and a design
+                  that helps your business look trustworthy.
+                </p>
+              </div>
+            </div>
+            <div class="page-bottom">Intro</div>
+          </div>
+        </div>
+
+        <div class="paper" id="paper2">
+          <div class="page front">
+            <div class="page-top">
+              <span>03</span>
+              <span>Basic Plan</span>
+            </div>
+            <div class="page-body">
+              <div class="kicker">Starter Package</div>
+              <h2 class="medium-title">Basic</h2>
+              <div class="price">₹4,999/-</div>
+              <ul class="features">
+                <li>1 page website</li>
+                <li>Mobile responsive layout</li>
+                <li>Business information section</li>
+                <li>Google Maps integration</li>
+                <li>WhatsApp button</li>
+              </ul>
+            </div>
+            <div class="page-bottom">Best for small businesses</div>
+          </div>
+
+          <div class="page back">
+            <div class="page-top">
+              <span>04</span>
+              <span>Why This Price</span>
+            </div>
+            <div class="page-body">
+              <span class="mini-label">Basic Explained</span>
+              <h2 class="medium-title">Why Basic Costs ₹4,999</h2>
+              <p class="page-copy">
+                This package is priced for businesses that need a clean online presence fast without
+                paying for extra pages or advanced structure. It covers the essential sections needed
+                to look credible and make it easy for customers to contact you.
+              </p>
+              <div class="info-card">
+                <h4>What you are paying for</h4>
+                <p>
+                  Design setup, responsive layout, clean structure, brand presentation, contact flow,
+                  and deployment-ready front-end work.
+                </p>
+              </div>
+            </div>
+            <div class="page-bottom">Lean and practical</div>
+          </div>
+        </div>
+
+        <div class="paper" id="paper3">
+          <div class="page front">
+            <div class="page-top">
+              <span>05</span>
+              <span>Standard Plan</span>
+            </div>
+            <div class="page-body">
+              <div class="kicker">Growth Package</div>
+              <h2 class="medium-title">Standard</h2>
+              <div class="price">₹5,999/-</div>
+              <ul class="features">
+                <li>Everything in Basic</li>
+                <li>Up to 4 sections</li>
+                <li>Photo gallery</li>
+                <li>Animations</li>
+                <li>Better layout and visual hierarchy</li>
+              </ul>
+            </div>
+            <div class="page-bottom">Best for growing businesses</div>
+          </div>
+
+          <div class="page back">
+            <div class="page-top">
+              <span>06</span>
+              <span>Why This Price</span>
+            </div>
+            <div class="page-body">
+              <span class="mini-label">Standard Explained</span>
+              <h2 class="medium-title">Why Standard Costs ₹5,999</h2>
+              <p class="page-copy">
+                Standard is for brands that need more than a basic presence. The extra cost reflects
+                more sections, better visual flow, gallery integration, and more refined front-end polish.
+              </p>
+              <div class="info-card">
+                <h4>What adds the value</h4>
+                <p>
+                  Better storytelling through layout, stronger visual hierarchy, more content space,
+                  and a site that feels more premium than a simple starter page.
+                </p>
+              </div>
+            </div>
+            <div class="page-bottom">More structure and presentation</div>
+          </div>
+        </div>
+
+        <div class="paper" id="paper4">
+          <div class="page front">
+            <div class="page-top">
+              <span>07</span>
+              <span>Premium Plan</span>
+            </div>
+            <div class="page-body">
+              <div class="kicker">Full Custom Package</div>
+              <h2 class="medium-title">Premium</h2>
+              <div class="price">₹7,999/-</div>
+              <ul class="features">
+                <li>Everything in Standard</li>
+                <li>Multi page website</li>
+                <li>Advanced custom design</li>
+                <li>Unlimited sections</li>
+                <li>Priority changes</li>
+              </ul>
+            </div>
+            <div class="page-bottom">Best for stronger brand presence</div>
+          </div>
+
+          <div class="page back">
+            <div class="page-top">
+              <span>08</span>
+              <span>Why This Price</span>
+            </div>
+            <div class="page-body">
+              <span class="mini-label">Premium Explained</span>
+              <h2 class="medium-title">Why Premium Costs ₹7,999</h2>
+              <p class="page-copy">
+                Premium includes the deepest level of customization. It is priced higher because it
+                requires more design decisions, more page planning, stronger visual polish, and more
+                refinement across the whole website.
+              </p>
+              <div class="info-card">
+                <h4>What makes it premium</h4>
+                <p>
+                  Multi-page structure, stronger brand presentation, more content flexibility, and
+                  higher-priority revision flow for businesses that want a more complete result.
+                </p>
+              </div>
+            </div>
+            <div class="page-bottom">Highest customization level</div>
+          </div>
+        </div>
+
+        <div class="paper" id="paper5">
+          <div class="page front">
+            <div class="page-top">
+              <span>09</span>
+              <span>About Knovalab</span>
+            </div>
+            <div class="page-body">
+              <span class="mini-label">Who We Are</span>
+              <h2 class="medium-title">Knovalab Builds Fast, Premium Business Websites</h2>
+              <p class="page-copy">
+                We focus on clean static websites for service-based businesses that want speed, clarity,
+                and strong design without backend-heavy systems.
+              </p>
+              <div class="info-card">
+                <h4>What matters to us</h4>
+                <p>
+                  Premium appearance, quick delivery, mobile-first structure, clean code, and websites
+                  built to help businesses convert attention into enquiries.
+                </p>
+              </div>
+            </div>
+            <div class="page-bottom">Built for local brands</div>
+          </div>
+
+          <div class="page back">
+            <div class="page-top">
+              <span>10</span>
+              <span>Call To Action</span>
+            </div>
+            <div class="page-body">
+              <div class="kicker">Ready To Start?</div>
+              <h2 class="big-title">Let’s Build Your Website</h2>
+              <p class="page-copy">
+                Pick the package that fits your business, book a free demo, and let’s create a website
+                that feels premium and converts better.
+              </p>
+              <div class="cta-box">
+                <p style="color:#544d44; line-height:1.8;">
+                  Phone: +91 9167878131<br>
+                  Delivery: 2–5 Days<br>
+                  WhatsApp Available
+                </p>
+                <a href="../demo/">Book Free Demo</a>
+              </div>
+            </div>
+            <div class="page-bottom">End</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="service-card reveal">
-      <h3>Salon Websites</h3>
-      <p>Highlight services, pricing, social proof, and booking-focused sections.</p>
+    <div class="book-status">
+      <span>Current sheet: <strong id="sheetLabel">1 / 5</strong></span>
     </div>
 
-    <div class="service-card reveal">
-      <h3>Custom Business Solutions</h3>
-      <p>Tailored websites built around your business goals and growth strategy.</p>
-    </div>
+    <div class="mobile-stack">
+      <div class="mobile-page">
+        <div class="kicker">Knovalab Catalogue</div>
+        <h2 class="medium-title">Pricing For Premium Static Websites</h2>
+        <p class="page-copy">Clear packages for different business stages, from lean starter websites to full custom builds.</p>
+      </div>
 
-    <div class="service-card reveal">
-      <h3>Landing Pages</h3>
-      <p>High-converting single-page websites for offers, launches, and campaigns.</p>
-    </div>
+      <div class="mobile-page">
+        <h2 class="medium-title">Basic - ₹4,999/-</h2>
+        <ul>
+          <li>1 page website</li>
+          <li>Mobile responsive</li>
+          <li>Google Maps integration</li>
+          <li>WhatsApp button</li>
+        </ul>
+      </div>
 
-    <div class="service-card reveal">
-      <h3>Portfolio Websites</h3>
-      <p>Personal brand websites for creators, professionals, and visual businesses.</p>
+      <div class="mobile-page">
+        <h2 class="medium-title">Why Basic Costs ₹4,999</h2>
+        <p class="page-copy">It covers essential business presentation, responsive setup, and a clean starter presence without extra complexity.</p>
+      </div>
+
+      <div class="mobile-page">
+        <h2 class="medium-title">Standard - ₹5,999/-</h2>
+        <ul>
+          <li>Everything in Basic</li>
+          <li>Up to 4 sections</li>
+          <li>Gallery</li>
+          <li>Animations</li>
+        </ul>
+      </div>
+
+      <div class="mobile-page">
+        <h2 class="medium-title">Why Standard Costs ₹5,999</h2>
+        <p class="page-copy">You get stronger presentation, more visual polish, and better content structure for growing businesses.</p>
+      </div>
+
+      <div class="mobile-page">
+        <h2 class="medium-title">Premium - ₹7,999/-</h2>
+        <ul>
+          <li>Everything in Standard</li>
+          <li>Multi page website</li>
+          <li>Advanced custom design</li>
+          <li>Priority changes</li>
+        </ul>
+      </div>
+
+      <div class="mobile-page">
+        <h2 class="medium-title">Why Premium Costs ₹7,999</h2>
+        <p class="page-copy">The higher price reflects deeper customization, more pages, more design refinement, and stronger brand presentation.</p>
+      </div>
+
+      <div class="mobile-page">
+        <h2 class="medium-title">About Knovalab</h2>
+        <p class="page-copy">We build fast, premium, mobile-first static websites for service businesses that want clarity and conversion-focused design.</p>
+      </div>
+
+      <div class="mobile-page">
+        <h2 class="medium-title">Ready To Start?</h2>
+        <p class="page-copy">Book a free demo and let’s build your website.</p>
+        <div style="margin-top:18px;">
+          <a href="../demo/" class="nav-btn">Book Free Demo</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats">
-  <div class="stats-grid">
-    <div class="stat reveal"><h3>2–5</h3><p>Days Delivery</p></div>
-    <div class="stat reveal"><h3>100%</h3><p>Mobile Optimized</p></div>
-    <div class="stat reveal"><h3>Fast</h3><p>Static Hosting</p></div>
-    <div class="stat reveal"><h3>Full</h3><p>Ownership</p></div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section class="portfolio" id="portfolio">
-  <h2 class="section-title reveal">Our Work</h2>
-  <p class="section-subtitle reveal">
-    A few live demos showing the design quality and style direction we build for local brands.
-  </p>
-
-  <div class="portfolio-wrap reveal">
-    <div id="portfolioSlider">
-
-      <div class="portfolio-card">
-        <div class="portfolio-preview">
-          <iframe src="https://knowbrand.github.io/thedtattoostudio"></iframe>
-        </div>
-        <h3>Tattoo Studio Demo</h3>
-        <p>Dark, bold, and conversion-focused for visual-first businesses.</p>
-        <a href="https://knowbrand.github.io/thedtattoostudio" target="_blank">Live Preview →</a>
-      </div>
-
-      <div class="portfolio-card">
-        <div class="portfolio-preview">
-          <iframe src="https://knowbrand.github.io/Restaurant-Demo"></iframe>
-        </div>
-        <h3>Restaurant Demo</h3>
-        <p>Premium layout built to showcase food, brand atmosphere, and booking flow.</p>
-        <a href="https://knowbrand.github.io/Restaurant-Demo" target="_blank">Live Preview →</a>
-      </div>
-
-      <div class="portfolio-card">
-        <div class="portfolio-preview">
-          <iframe src="https://knowbrand.github.io/4utattoostudio/"></iframe>
-        </div>
-        <h3>Tattoo Studio Demo 2</h3>
-        <p>Visual-first design with strong hierarchy and clean CTA placement.</p>
-        <a href="https://knowbrand.github.io/4utattoostudio/" target="_blank">Live Preview →</a>
-      </div>
-
-      <div class="portfolio-card">
-        <div class="portfolio-preview">
-          <iframe src="https://knowbrand.github.io/thedtattoostudio"></iframe>
-        </div>
-        <h3>Studio Concept</h3>
-        <p>Another direction for service brands that need edge and credibility.</p>
-        <a href="https://knowbrand.github.io/thedtattoostudio" target="_blank">Live Preview →</a>
-      </div>
-
-      <div class="portfolio-card">
-        <div class="portfolio-preview">
-          <iframe src="https://knowbrand.github.io/Restaurant-Demo"></iframe>
-        </div>
-        <h3>Dining Concept</h3>
-        <p>Elegant layout style for hospitality and premium local business websites.</p>
-        <a href="https://knowbrand.github.io/Restaurant-Demo" target="_blank">Live Preview →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq-section">
-  <h2 class="section-title reveal">Frequently Asked Questions</h2>
-  <p class="section-subtitle reveal">
-    Quick answers about timelines, ownership, and how the process works.
-  </p>
-
-  <div class="faq-list">
-    <div class="faq-item reveal">
-      <button class="faq-question">
-        <span>How long does it take?</span>
-        <span>+</span>
-      </button>
-      <div class="faq-answer">
-        <p>Most websites are delivered within 2–5 days depending on scope.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <button class="faq-question">
-        <span>Do I own the website?</span>
-        <span>+</span>
-      </button>
-      <div class="faq-answer">
-        <p>Yes. You receive full ownership after completion.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <button class="faq-question">
-        <span>Will it work on mobile?</span>
-        <span>+</span>
-      </button>
-      <div class="faq-answer">
-        <p>Absolutely. All websites are fully responsive and built mobile-first.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-strip">
-  <div class="contact-box reveal">
-    <h2>Let’s Build Your Website</h2>
-    <p>Fast, premium, and built to help your business look more credible online.</p>
-    <p><strong>Phone:</strong> +91 9167878131</p>
-    <a href="https://wa.me/919167878131" class="contact-btn">Chat on WhatsApp</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="cta-box reveal">
-    <div class="cta-left">
-      <h2>Ready To Launch Your Website?</h2>
-      <p>
-        Get a premium, mobile-optimized website built in just 2–5 days.
-        No monthly fees. Full ownership. Built to convert visitors into customers.
-      </p>
-    </div>
-
-    <div class="cta-right">
-      <a href="/demo/" class="cta-button">Book Free Demo</a>
-    </div>
-  </div>
-
-  <div class="footer-bottom reveal">
-    <div class="footer-brand">
-      <h3>Knovalab</h3>
-      <p>Premium websites for growing businesses.</p>
-    </div>
-
-    <div class="footer-links">
-      <div>
-        <h4>Features</h4>
-        <p>⚡ Fast Static Hosting</p>
-        <p>📱 100% Mobile Optimized</p>
-        <p>🎯 Conversion-Focused Design</p>
-        <p>🔒 Full Website Ownership</p>
-      </div>
-
-      <div>
-        <h4>Services</h4>
-        <a href="/services/">Business Websites</a>
-        <a href="/services/">Restaurant Websites</a>
-        <a href="/services/">Salon Websites</a>
-        <a href="/services/">Portfolio Websites</a>
-      </div>
-
-      <div>
-        <h4>Contact</h4>
-        <p>+91 9167878131</p>
-        <p>WhatsApp Available</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-credit">
-    © 2026 Knovalab. All rights reserved.
-  </div>
-</footer>
-
-<!-- CHAT -->
-<div class="chat-toggle" onclick="toggleChat()">Chat</div>
-
-<div id="chatbox">
-  <div class="chat-head">Knovalab Assistant</div>
-  <div class="chat-body">
-    <div class="chat-message">
-      Hi 👋 I can help you with pricing, timelines or booking a demo.
-    </div>
-  </div>
-</div>
-
-<!-- SCRIPTS -->
 <script>
-/* Navbar shrink */
-window.addEventListener("scroll", function(){
-  const nav = document.querySelector("nav");
-  if(window.scrollY > 50){
-    nav.classList.add("shrink");
-  }else{
-    nav.classList.remove("shrink");
-  }
-});
+const papers = [
+  document.getElementById("paper1"),
+  document.getElementById("paper2"),
+  document.getElementById("paper3"),
+  document.getElementById("paper4"),
+  document.getElementById("paper5")
+];
 
-/* Mobile toggle */
-document.querySelector(".menu-toggle").addEventListener("click", function(){
-  document.querySelector(".nav-links").classList.toggle("active");
-});
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const sheetLabel = document.getElementById("sheetLabel");
 
-/* FAQ toggle */
-document.querySelectorAll(".faq-question").forEach((button) => {
-  button.addEventListener("click", () => {
-    const item = button.parentElement;
-    const answer = item.querySelector(".faq-answer");
-    const isActive = item.classList.contains("active");
+let currentLocation = 1;
+const maxLocation = papers.length + 1;
 
-    document.querySelectorAll(".faq-item").forEach((faq) => {
-      faq.classList.remove("active");
-      faq.querySelector(".faq-answer").style.maxHeight = null;
-    });
-
-    if(!isActive){
-      item.classList.add("active");
-      answer.style.maxHeight = answer.scrollHeight + "px";
+function updateZIndexes(){
+  papers.forEach((paper, index) => {
+    if(index + 1 < currentLocation){
+      paper.style.zIndex = index + 1;
+    }else{
+      paper.style.zIndex = papers.length - index + 10;
     }
   });
-});
-
-/* Chat toggle */
-function toggleChat(){
-  const box = document.getElementById("chatbox");
-  box.style.display = box.style.display === "flex" ? "none" : "flex";
 }
 
-/* Slider drag */
-const slider = document.getElementById("portfolioSlider");
-let isDown = false;
-let startX;
-let scrollLeft;
+function updateUI(){
+  prevBtn.disabled = currentLocation === 1;
+  nextBtn.disabled = currentLocation === maxLocation;
+  sheetLabel.textContent = `${Math.min(currentLocation, papers.length)} / ${papers.length}`;
+  if(currentLocation === maxLocation){
+    sheetLabel.textContent = `${papers.length} / ${papers.length}`;
+  }
+}
 
-slider.addEventListener("mousedown",(e)=>{
-  isDown = true;
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
+function goNextPage(){
+  if(currentLocation < maxLocation){
+    papers[currentLocation - 1].classList.add("flipped");
+    currentLocation++;
+    updateZIndexes();
+    updateUI();
+  }
+}
+
+function goPrevPage(){
+  if(currentLocation > 1){
+    papers[currentLocation - 2].classList.remove("flipped");
+    currentLocation--;
+    updateZIndexes();
+    updateUI();
+  }
+}
+
+nextBtn.addEventListener("click", goNextPage);
+prevBtn.addEventListener("click", goPrevPage);
+
+document.addEventListener("keydown", (e) => {
+  if(e.key === "ArrowRight") goNextPage();
+  if(e.key === "ArrowLeft") goPrevPage();
 });
 
-slider.addEventListener("mouseup",()=> isDown = false);
-slider.addEventListener("mouseleave",()=> isDown = false);
+let touchStartX = 0;
 
-slider.addEventListener("mousemove",(e)=>{
-  if(!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 1.2;
-  slider.scrollLeft = scrollLeft - walk;
-});
+document.getElementById("book").addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+}, { passive:true });
 
-/* Touch slider */
-slider.addEventListener("touchstart",(e)=>{
-  startX = e.touches[0].pageX;
-  scrollLeft = slider.scrollLeft;
-},{ passive:true });
+document.getElementById("book").addEventListener("touchend", (e) => {
+  const diff = e.changedTouches[0].clientX - touchStartX;
+  if(Math.abs(diff) < 40) return;
+  if(diff < 0) goNextPage();
+  if(diff > 0) goPrevPage();
+}, { passive:true });
 
-slider.addEventListener("touchmove",(e)=>{
-  const x = e.touches[0].pageX;
-  const walk = (x - startX) * 1.2;
-  slider.scrollLeft = scrollLeft - walk;
-},{ passive:true });
-
-/* Reveal on scroll */
-const reveals = document.querySelectorAll(".reveal");
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-}, { threshold: 0.12 });
-
-reveals.forEach((el) => revealObserver.observe(el));
+updateZIndexes();
+updateUI();
 </script>
 
 </body>
