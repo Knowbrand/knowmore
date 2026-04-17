@@ -15,19 +15,20 @@
 
 :root{
   --accent:#ff6a00;
-  --bg:#0c0c0c;
+  --bg:#0b0b0b;
   --bg-soft:#121212;
-  --paper:#f4efe7;
-  --paper-2:#ece3d5;
+  --paper:#f5efe5;
+  --paper-2:#eee5d8;
   --ink:#171717;
-  --muted:#5f574d;
-  --shadow:0 30px 80px rgba(0,0,0,0.34);
+  --muted:#5d554b;
+  --line:rgba(0,0,0,0.08);
+  --glass:rgba(255,255,255,0.05);
 }
 
 body{
   background:
-    radial-gradient(circle at top, rgba(255,106,0,0.08), transparent 24%),
-    linear-gradient(180deg, #111 0%, #090909 100%);
+    radial-gradient(circle at top, rgba(255,106,0,0.08), transparent 26%),
+    linear-gradient(180deg, #101010 0%, #090909 100%);
   color:white;
   min-height:100vh;
   overflow-x:hidden;
@@ -41,8 +42,8 @@ nav{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 8%;
-  background:rgba(12,12,12,0.88);
+  padding:0 7%;
+  background:rgba(11,11,11,0.88);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(255,255,255,0.05);
 }
@@ -54,34 +55,34 @@ nav h3{
 
 .nav-right{
   display:flex;
-  gap:14px;
   align-items:center;
+  gap:18px;
 }
 
-.nav-link{
+.nav-right a{
   color:white;
   text-decoration:none;
-  opacity:0.8;
+  opacity:0.82;
+  font-weight:500;
 }
 
 .nav-btn{
   background:var(--accent);
-  color:white;
-  text-decoration:none;
-  padding:11px 22px;
+  padding:12px 24px;
   border-radius:999px;
-  font-weight:600;
-  transition:0.3s;
+  opacity:1 !important;
+  font-weight:700 !important;
+  transition:0.25s ease;
 }
 
 .nav-btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 12px 28px rgba(255,106,0,0.25);
+  box-shadow:0 12px 28px rgba(255,106,0,0.26);
 }
 
 .hero{
-  padding:48px 8% 24px;
   text-align:center;
+  padding:42px 7% 16px;
 }
 
 .hero span{
@@ -94,106 +95,82 @@ nav h3{
 }
 
 .hero h1{
-  font-size:clamp(32px, 5vw, 58px);
+  font-size:clamp(30px, 4.2vw, 50px);
   line-height:0.95;
   text-transform:uppercase;
   margin-bottom:12px;
 }
 
 .hero p{
-  max-width:760px;
+  max-width:720px;
   margin:0 auto;
-  color:rgba(255,255,255,0.7);
+  color:rgba(255,255,255,0.72);
+  font-size:16px;
 }
 
 .catalogue{
-  padding:30px 4% 70px;
+  padding:22px 4% 64px;
 }
 
-.book-shell{
-  max-width:1380px;
-  margin:0 auto;
-}
-
-.book-controls{
+.controls{
   display:flex;
   justify-content:center;
+  align-items:center;
   gap:14px;
-  margin-bottom:24px;
+  margin-bottom:18px;
 }
 
-.book-controls button{
-  width:62px;
-  height:62px;
+.turn-btn{
+  width:56px;
+  height:56px;
   border-radius:50%;
   border:1px solid rgba(255,255,255,0.08);
-  background:rgba(255,255,255,0.03);
+  background:var(--glass);
   color:white;
-  font-size:26px;
+  font-size:24px;
   cursor:pointer;
-  transition:0.3s;
+  transition:0.25s ease;
 }
 
-.book-controls button:hover:not(:disabled){
+.turn-btn:hover:not(:disabled){
   color:var(--accent);
   border-color:rgba(255,106,0,0.4);
   transform:translateY(-2px);
 }
 
-.book-controls button:disabled{
-  opacity:0.3;
+.turn-btn:disabled{
+  opacity:0.28;
   cursor:not-allowed;
+}
+
+.book-shell{
+  max-width:1120px;
+  margin:0 auto;
 }
 
 .book-stage{
   position:relative;
-  perspective:3000px;
+  perspective:2600px;
+  min-height:620px;
   display:flex;
   justify-content:center;
   align-items:center;
-  min-height:820px;
 }
 
 .book-shadow{
   position:absolute;
-  width:min(1100px, 88vw);
-  height:70px;
-  bottom:50px;
+  bottom:32px;
+  width:min(920px, 84vw);
+  height:48px;
   background:radial-gradient(circle, rgba(0,0,0,0.5), transparent 72%);
-  filter:blur(20px);
+  filter:blur(18px);
 }
 
 .book{
   position:relative;
-  width:min(1100px, 88vw);
-  height:min(720px, 72vw);
-  min-height:620px;
-}
-
-.base-left,
-.base-right{
-  position:absolute;
-  top:0;
-  width:50%;
-  height:100%;
-  background:var(--paper);
-  box-shadow:var(--shadow);
-  overflow:hidden;
-}
-
-.base-left{
-  left:0;
-  border-radius:24px 0 0 24px;
-  border-right:1px solid rgba(0,0,0,0.08);
-}
-
-.base-right{
-  right:0;
-  border-radius:0 24px 24px 0;
-  border-left:1px solid rgba(0,0,0,0.08);
-  background:
-    linear-gradient(90deg, rgba(0,0,0,0.04), transparent 10%),
-    var(--paper);
+  width:min(920px, 84vw);
+  height:min(560px, 55vw);
+  min-height:520px;
 }
 
 .spine{
@@ -203,38 +180,92 @@ nav h3{
   transform:translateX(-50%);
   width:18px;
   height:96%;
-  border-radius:18px;
-  background:linear-gradient(180deg, #1a1a1a 0%, #0b0b0b 100%);
-  box-shadow:inset 0 0 12px rgba(255,255,255,0.05);
-  z-index:50;
+  border-radius:20px;
+  background:linear-gradient(180deg, #161616 0%, #080808 100%);
+  z-index:40;
+  box-shadow:inset 0 0 10px rgba(255,255,255,0.05);
 }
 
-.paper{
+.spread{
   position:absolute;
-  width:50%;
-  height:100%;
-  left:50%;
-  top:0;
-  transform-style:preserve-3d;
-  transform-origin:left;
-  transition:transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+  inset:0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+  opacity:0;
+  pointer-events:none;
+  transform:translateZ(-80px) scale(0.98);
+  transition:opacity 0.35s ease;
 }
 
-.paper.flipped{
-  transform:rotateY(-180deg);
+.spread.active{
+  opacity:1;
+  pointer-events:auto;
+  z-index:20;
+  transform:translateZ(0) scale(1);
+}
+
+.spread.next-out{
+  animation:turnNext 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index:24;
+}
+
+.spread.prev-in{
+  animation:turnPrev 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index:18;
+}
+
+@keyframes turnNext{
+  0%{
+    opacity:1;
+    transform:rotateY(0deg) translateX(0) translateZ(0);
+  }
+  40%{
+    opacity:1;
+    transform:rotateY(-12deg) translateX(-1.5%) translateZ(10px);
+  }
+  100%{
+    opacity:0;
+    transform:rotateY(-28deg) translateX(-10%) translateZ(-80px);
+  }
+}
+
+@keyframes turnPrev{
+  0%{
+    opacity:0;
+    transform:rotateY(18deg) translateX(10%) translateZ(-80px);
+  }
+  100%{
+    opacity:1;
+    transform:rotateY(0deg) translateX(0) translateZ(0);
+  }
 }
 
 .page{
-  position:absolute;
-  inset:0;
-  background:var(--paper);
-  color:var(--ink);
-  backface-visibility:hidden;
+  position:relative;
   overflow:hidden;
+  padding:30px 28px;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  padding:40px 34px;
+  color:var(--ink);
+  box-shadow:0 24px 58px rgba(0,0,0,0.24);
+}
+
+.page.left{
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.025), transparent 10%),
+    var(--paper-2);
+  border-radius:22px 6px 6px 22px;
+  border-right:1px solid var(--line);
+}
+
+.page.right{
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.04), transparent 12%),
+    var(--paper);
+  border-radius:6px 22px 22px 6px;
+  border-left:1px solid var(--line);
 }
 
 .page::before{
@@ -242,38 +273,22 @@ nav h3{
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at top left, rgba(255,255,255,0.5), transparent 28%),
+    radial-gradient(circle at top left, rgba(255,255,255,0.45), transparent 24%),
     linear-gradient(180deg, rgba(255,255,255,0.12), transparent 22%);
   pointer-events:none;
 }
 
-.front{
-  border-radius:0 24px 24px 0;
-  border-left:1px solid rgba(0,0,0,0.06);
-  background:
-    linear-gradient(90deg, rgba(0,0,0,0.035), transparent 11%),
-    var(--paper);
-}
-
-.back{
-  transform:rotateY(180deg);
-  border-radius:24px 0 0 24px;
-  border-right:1px solid rgba(0,0,0,0.06);
-  background:
-    linear-gradient(270deg, rgba(0,0,0,0.035), transparent 11%),
-    var(--paper-2);
-}
-
-.page-top{
+.page-head,
+.page-foot{
+  position:relative;
+  z-index:2;
   display:flex;
   justify-content:space-between;
   align-items:center;
   font-size:12px;
   text-transform:uppercase;
   letter-spacing:2px;
-  color:#7a7268;
-  position:relative;
-  z-index:2;
+  color:#7d756c;
 }
 
 .page-body{
@@ -281,65 +296,68 @@ nav h3{
   z-index:2;
 }
 
-.page-bottom{
-  position:relative;
-  z-index:2;
-  font-size:12px;
-  color:#7a7268;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
 .kicker{
   color:var(--accent);
   text-transform:uppercase;
   letter-spacing:3px;
   font-size:12px;
-  margin-bottom:16px;
-}
-
-.big-title{
-  font-size:clamp(34px, 4vw, 58px);
-  line-height:0.92;
-  text-transform:uppercase;
-  margin-bottom:18px;
-  max-width:380px;
-}
-
-.medium-title{
-  font-size:clamp(28px, 3vw, 42px);
-  line-height:0.94;
-  text-transform:uppercase;
   margin-bottom:14px;
 }
 
-.page-copy{
+.badge{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,0.08);
+  background:rgba(255,255,255,0.38);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:11px;
+  margin-bottom:18px;
+}
+
+.title-xl{
+  font-size:clamp(34px, 4.6vw, 56px);
+  line-height:0.92;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  max-width:320px;
+}
+
+.title-lg{
+  font-size:clamp(26px, 3vw, 40px);
+  line-height:0.95;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  max-width:340px;
+}
+
+.copy{
   color:var(--muted);
-  font-size:15px;
+  font-size:14px;
   line-height:1.8;
-  max-width:370px;
+  max-width:360px;
 }
 
 .price{
-  font-size:52px;
+  font-size:56px;
   font-weight:800;
-  line-height:1;
+  line-height:0.95;
   color:var(--accent);
-  margin:16px 0 18px;
+  margin:12px 0 18px;
 }
 
 .features{
   list-style:none;
   display:grid;
   gap:10px;
-  margin-top:8px;
 }
 
 .features li{
-  padding-left:18px;
   position:relative;
+  padding-left:18px;
   font-size:14px;
-  color:#2e2a25;
+  color:#302b26;
 }
 
 .features li::before{
@@ -353,95 +371,91 @@ nav h3{
   background:var(--accent);
 }
 
-.info-card{
-  margin-top:24px;
+.note-box{
+  margin-top:22px;
   padding:18px;
   border-radius:18px;
-  background:rgba(255,255,255,0.45);
   border:1px solid rgba(0,0,0,0.06);
+  background:rgba(255,255,255,0.42);
 }
 
-.info-card h4{
+.note-box h4{
   font-size:18px;
   margin-bottom:8px;
 }
 
-.info-card p{
-  font-size:14px;
+.note-box p{
   color:var(--muted);
-}
-
-.mini-label{
-  display:inline-block;
-  padding:8px 14px;
-  border-radius:999px;
-  background:#e8ddcd;
-  border:1px solid rgba(0,0,0,0.06);
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:18px;
+  font-size:14px;
+  line-height:1.75;
 }
 
 .visual-box{
-  height:220px;
-  border-radius:24px;
+  margin-top:20px;
+  height:170px;
+  border-radius:20px;
   background:
-    linear-gradient(135deg, rgba(255,106,0,0.95), rgba(255,106,0,0.18)),
-    #202020;
+    linear-gradient(135deg, rgba(255,106,0,0.92), rgba(255,106,0,0.18)),
+    #1f1f1f;
   position:relative;
   overflow:hidden;
-  margin-top:20px;
 }
 
 .visual-box::before{
   content:"";
   position:absolute;
-  width:180px;
-  height:180px;
+  width:150px;
+  height:150px;
   border-radius:50%;
-  right:-40px;
-  top:-50px;
-  background:rgba(255,255,255,0.16);
+  background:rgba(255,255,255,0.14);
+  right:-30px;
+  top:-40px;
 }
 
 .visual-box::after{
   content:"";
   position:absolute;
-  width:230px;
-  height:230px;
-  border:1px solid rgba(255,255,255,0.2);
+  width:200px;
+  height:200px;
+  border:1px solid rgba(255,255,255,0.18);
   border-radius:50%;
-  left:-70px;
-  bottom:-100px;
+  left:-60px;
+  bottom:-90px;
 }
 
 .cta-box{
-  background:#e9dece;
+  margin-top:22px;
+  padding:20px;
+  border-radius:18px;
+  background:#e8dece;
   border:1px solid rgba(0,0,0,0.06);
-  border-radius:22px;
-  padding:22px;
-  margin-top:24px;
+}
+
+.cta-box p{
+  color:#554e45;
+  line-height:1.8;
+  font-size:14px;
 }
 
 .cta-box a{
   display:inline-block;
   margin-top:14px;
+  padding:12px 22px;
+  border-radius:999px;
+  text-decoration:none;
   background:var(--accent);
   color:white;
-  text-decoration:none;
-  padding:13px 22px;
-  border-radius:999px;
-  font-weight:600;
+  font-weight:700;
 }
 
-.book-status{
+.status{
   text-align:center;
-  margin-top:24px;
-  color:rgba(255,255,255,0.7);
+  margin-top:18px;
+  color:rgba(255,255,255,0.72);
+  font-size:14px;
 }
 
-.book-status strong{
+.status strong{
   color:var(--accent);
 }
 
@@ -449,8 +463,13 @@ nav h3{
   display:none;
 }
 
-@media(max-width:980px){
+@media(max-width:960px){
   .book-stage{
+    display:none;
+  }
+
+  .status,
+  .controls{
     display:none;
   }
 
@@ -461,51 +480,65 @@ nav h3{
     margin:0 auto;
   }
 
-  .mobile-page{
+  .mobile-card{
     background:var(--paper);
     color:var(--ink);
-    border-radius:24px;
-    padding:28px 22px;
-    box-shadow:var(--shadow);
+    border-radius:22px;
+    padding:26px 20px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.2);
   }
 
-  .mobile-page p,
-  .mobile-page li{
+  .mobile-card .copy,
+  .mobile-card li{
     color:var(--muted);
   }
 
-  .mobile-page ul{
+  .mobile-card ul{
     list-style:none;
     display:grid;
     gap:10px;
     margin-top:12px;
   }
 
-  .mobile-page li{
-    padding-left:18px;
+  .mobile-card li{
     position:relative;
+    padding-left:18px;
   }
 
-  .mobile-page li::before{
+  .mobile-card li::before{
     content:"";
     position:absolute;
     left:0;
-    top:9px;
+    top:8px;
     width:8px;
     height:8px;
     border-radius:50%;
     background:var(--accent);
   }
+
+  .mobile-block{
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid rgba(0,0,0,0.08);
+  }
 }
 
 @media(max-width:700px){
   nav{
-    padding:0 6%;
+    padding:0 5%;
   }
 
   .hero{
-    padding-left:6%;
-    padding-right:6%;
+    padding-left:5%;
+    padding-right:5%;
+  }
+
+  .nav-right{
+    gap:12px;
+  }
+
+  .nav-btn{
+    padding:10px 18px;
   }
 }
 </style>
@@ -515,7 +548,7 @@ nav h3{
 <nav>
   <h3>Knovalab</h3>
   <div class="nav-right">
-    <a href="../" class="nav-link">Home</a>
+    <a href="../">Home</a>
     <a href="../demo/" class="nav-btn">Book Free Demo</a>
   </div>
 </nav>
@@ -524,79 +557,88 @@ nav h3{
   <span>Pricing Catalogue</span>
   <h1>Turn Through Our Website Packages</h1>
   <p>
-    A premium catalogue experience for Knovalab pricing. Each page explains not just the plan,
-    but what goes into it and why it is priced that way.
+    Pricing stays on the left, explanation stays on the right, so the catalogue is easier to understand at a glance.
   </p>
 </section>
 
 <section class="catalogue">
   <div class="book-shell">
-    <div class="book-controls">
-      <button id="prevBtn" aria-label="Previous page">←</button>
-      <button id="nextBtn" aria-label="Next page">→</button>
+    <div class="controls">
+      <button class="turn-btn" id="prevBtn" aria-label="Previous spread">←</button>
+      <button class="turn-btn" id="nextBtn" aria-label="Next spread">→</button>
     </div>
 
     <div class="book-stage">
       <div class="book-shadow"></div>
 
       <div class="book" id="book">
-        <div class="base-left"></div>
-        <div class="base-right"></div>
         <div class="spine"></div>
 
-        <div class="paper" id="paper1">
-          <div class="page front">
-            <div class="page-top">
+        <div class="spread active" data-index="0">
+          <article class="page left">
+            <div class="page-head">
               <span>01</span>
-              <span>Cover</span>
+              <span>Catalogue</span>
             </div>
+
             <div class="page-body">
-              <div class="kicker">Knovalab Catalogue</div>
-              <h2 class="big-title">Pricing For Premium Static Websites</h2>
-              <p class="page-copy">
-                Clean packages. Clear value. Fast delivery. Built for businesses that want
-                a strong online presence without heavy systems or monthly complexity.
+              <div class="kicker">Knovalab 2026</div>
+              <h2 class="title-xl">Pricing For Premium Static Websites</h2>
+              <p class="copy">
+                Structured packages for service businesses that want strong presentation,
+                fast delivery, and clean front-end builds without unnecessary complexity.
               </p>
               <div class="visual-box"></div>
             </div>
-            <div class="page-bottom">Knovalab 2026</div>
-          </div>
 
-          <div class="page back">
-            <div class="page-top">
+            <div class="page-foot">
+              <span>Cover</span>
+              <span>Knovalab</span>
+            </div>
+          </article>
+
+          <article class="page right">
+            <div class="page-head">
               <span>02</span>
               <span>About Pricing</span>
             </div>
+
             <div class="page-body">
-              <span class="mini-label">Why We Package It This Way</span>
-              <h2 class="medium-title">Simple Packages Make Decisions Easier</h2>
-              <p class="page-copy">
-                Our pricing is structured to match different business stages. Smaller brands can
-                start lean, growing brands can get better structure and visuals, and premium brands
-                can go for a more complete custom site.
+              <span class="badge">How To Read This</span>
+              <h2 class="title-lg">Every Package Is Shown With Its Reasoning</h2>
+              <p class="copy">
+                The left page shows exactly what you get. The right page explains why the package
+                costs what it costs, so clients understand the value instead of only seeing a number.
               </p>
-              <div class="info-card">
+
+              <div class="note-box">
                 <h4>What stays consistent</h4>
                 <p>
-                  Every package focuses on speed, mobile responsiveness, clean code, and a design
-                  that helps your business look trustworthy.
+                  All packages are mobile responsive, fast-loading, cleanly structured, and designed
+                  to make your business look more premium online.
                 </p>
               </div>
             </div>
-            <div class="page-bottom">Intro</div>
-          </div>
+
+            <div class="page-foot">
+              <span>Intro</span>
+              <span>Why It’s Structured This Way</span>
+            </div>
+          </article>
         </div>
 
-        <div class="paper" id="paper2">
-          <div class="page front">
-            <div class="page-top">
+        <div class="spread" data-index="1">
+          <article class="page left">
+            <div class="page-head">
               <span>03</span>
-              <span>Basic Plan</span>
+              <span>Basic Pricing</span>
             </div>
+
             <div class="page-body">
               <div class="kicker">Starter Package</div>
-              <h2 class="medium-title">Basic</h2>
+              <h2 class="title-lg">Basic</h2>
               <div class="price">₹4,999/-</div>
+
               <ul class="features">
                 <li>1 page website</li>
                 <li>Mobile responsive layout</li>
@@ -605,44 +647,56 @@ nav h3{
                 <li>WhatsApp button</li>
               </ul>
             </div>
-            <div class="page-bottom">Best for small businesses</div>
-          </div>
 
-          <div class="page back">
-            <div class="page-top">
-              <span>04</span>
-              <span>Why This Price</span>
+            <div class="page-foot">
+              <span>Plan 1</span>
+              <span>Best for small businesses</span>
             </div>
+          </article>
+
+          <article class="page right">
+            <div class="page-head">
+              <span>04</span>
+              <span>Basic Explained</span>
+            </div>
+
             <div class="page-body">
-              <span class="mini-label">Basic Explained</span>
-              <h2 class="medium-title">Why Basic Costs ₹4,999</h2>
-              <p class="page-copy">
-                This package is priced for businesses that need a clean online presence fast without
-                paying for extra pages or advanced structure. It covers the essential sections needed
-                to look credible and make it easy for customers to contact you.
+              <span class="badge">Why This Price</span>
+              <h2 class="title-lg">Why Basic Costs ₹4,999</h2>
+              <p class="copy">
+                This plan is for businesses that need a clean online presence quickly without paying
+                for extra pages or heavier customization. It covers the core structure needed to look
+                credible and make it easy for people to contact you.
               </p>
-              <div class="info-card">
+
+              <div class="note-box">
                 <h4>What you are paying for</h4>
                 <p>
-                  Design setup, responsive layout, clean structure, brand presentation, contact flow,
-                  and deployment-ready front-end work.
+                  Responsive setup, layout structure, brand presentation, business info placement,
+                  contact flow, and a simple site that is ready to deploy.
                 </p>
               </div>
             </div>
-            <div class="page-bottom">Lean and practical</div>
-          </div>
+
+            <div class="page-foot">
+              <span>Explanation</span>
+              <span>Lean and practical</span>
+            </div>
+          </article>
         </div>
 
-        <div class="paper" id="paper3">
-          <div class="page front">
-            <div class="page-top">
+        <div class="spread" data-index="2">
+          <article class="page left">
+            <div class="page-head">
               <span>05</span>
-              <span>Standard Plan</span>
+              <span>Standard Pricing</span>
             </div>
+
             <div class="page-body">
               <div class="kicker">Growth Package</div>
-              <h2 class="medium-title">Standard</h2>
+              <h2 class="title-lg">Standard</h2>
               <div class="price">₹5,999/-</div>
+
               <ul class="features">
                 <li>Everything in Basic</li>
                 <li>Up to 4 sections</li>
@@ -651,43 +705,56 @@ nav h3{
                 <li>Better layout and visual hierarchy</li>
               </ul>
             </div>
-            <div class="page-bottom">Best for growing businesses</div>
-          </div>
 
-          <div class="page back">
-            <div class="page-top">
-              <span>06</span>
-              <span>Why This Price</span>
+            <div class="page-foot">
+              <span>Plan 2</span>
+              <span>Best for growing businesses</span>
             </div>
+          </article>
+
+          <article class="page right">
+            <div class="page-head">
+              <span>06</span>
+              <span>Standard Explained</span>
+            </div>
+
             <div class="page-body">
-              <span class="mini-label">Standard Explained</span>
-              <h2 class="medium-title">Why Standard Costs ₹5,999</h2>
-              <p class="page-copy">
-                Standard is for brands that need more than a basic presence. The extra cost reflects
-                more sections, better visual flow, gallery integration, and more refined front-end polish.
+              <span class="badge">Why This Price</span>
+              <h2 class="title-lg">Why Standard Costs ₹5,999</h2>
+              <p class="copy">
+                Standard adds more content room, more visual polish, and a stronger presentation.
+                It is priced slightly higher because it gives the business better storytelling,
+                stronger hierarchy, and a site that feels more premium than a basic starter page.
               </p>
-              <div class="info-card">
+
+              <div class="note-box">
                 <h4>What adds the value</h4>
                 <p>
-                  Better storytelling through layout, stronger visual hierarchy, more content space,
-                  and a site that feels more premium than a simple starter page.
+                  More sections, gallery support, cleaner flow between content blocks,
+                  and subtle animations that improve the final feel of the site.
                 </p>
               </div>
             </div>
-            <div class="page-bottom">More structure and presentation</div>
-          </div>
+
+            <div class="page-foot">
+              <span>Explanation</span>
+              <span>More structure and polish</span>
+            </div>
+          </article>
         </div>
 
-        <div class="paper" id="paper4">
-          <div class="page front">
-            <div class="page-top">
+        <div class="spread" data-index="3">
+          <article class="page left">
+            <div class="page-head">
               <span>07</span>
-              <span>Premium Plan</span>
+              <span>Premium Pricing</span>
             </div>
+
             <div class="page-body">
               <div class="kicker">Full Custom Package</div>
-              <h2 class="medium-title">Premium</h2>
+              <h2 class="title-lg">Premium</h2>
               <div class="price">₹7,999/-</div>
+
               <ul class="features">
                 <li>Everything in Standard</li>
                 <li>Multi page website</li>
@@ -696,72 +763,90 @@ nav h3{
                 <li>Priority changes</li>
               </ul>
             </div>
-            <div class="page-bottom">Best for stronger brand presence</div>
-          </div>
 
-          <div class="page back">
-            <div class="page-top">
-              <span>08</span>
-              <span>Why This Price</span>
+            <div class="page-foot">
+              <span>Plan 3</span>
+              <span>Best for stronger brand presence</span>
             </div>
+          </article>
+
+          <article class="page right">
+            <div class="page-head">
+              <span>08</span>
+              <span>Premium Explained</span>
+            </div>
+
             <div class="page-body">
-              <span class="mini-label">Premium Explained</span>
-              <h2 class="medium-title">Why Premium Costs ₹7,999</h2>
-              <p class="page-copy">
+              <span class="badge">Why This Price</span>
+              <h2 class="title-lg">Why Premium Costs ₹7,999</h2>
+              <p class="copy">
                 Premium includes the deepest level of customization. It is priced higher because it
-                requires more design decisions, more page planning, stronger visual polish, and more
-                refinement across the whole website.
+                needs more design decisions, stronger visual refinement, more planning across pages,
+                and more flexibility for businesses that want a fuller website presence.
               </p>
-              <div class="info-card">
+
+              <div class="note-box">
                 <h4>What makes it premium</h4>
                 <p>
-                  Multi-page structure, stronger brand presentation, more content flexibility, and
-                  higher-priority revision flow for businesses that want a more complete result.
+                  Multi-page structure, stronger branding, more content freedom, and a more complete
+                  front-end experience built to feel custom rather than templated.
                 </p>
               </div>
             </div>
-            <div class="page-bottom">Highest customization level</div>
-          </div>
+
+            <div class="page-foot">
+              <span>Explanation</span>
+              <span>Highest customization level</span>
+            </div>
+          </article>
         </div>
 
-        <div class="paper" id="paper5">
-          <div class="page front">
-            <div class="page-top">
+        <div class="spread" data-index="4">
+          <article class="page left">
+            <div class="page-head">
               <span>09</span>
               <span>About Knovalab</span>
             </div>
+
             <div class="page-body">
-              <span class="mini-label">Who We Are</span>
-              <h2 class="medium-title">Knovalab Builds Fast, Premium Business Websites</h2>
-              <p class="page-copy">
-                We focus on clean static websites for service-based businesses that want speed, clarity,
-                and strong design without backend-heavy systems.
+              <span class="badge">Who We Are</span>
+              <h2 class="title-lg">Knovalab Builds Fast, Premium Business Websites</h2>
+              <p class="copy">
+                We focus on static websites for service businesses that want clean design, strong
+                mobile performance, quick delivery, and a premium look without backend-heavy systems.
               </p>
-              <div class="info-card">
+
+              <div class="note-box">
                 <h4>What matters to us</h4>
                 <p>
-                  Premium appearance, quick delivery, mobile-first structure, clean code, and websites
-                  built to help businesses convert attention into enquiries.
+                  Clarity, structure, speed, visual quality, and websites that help businesses turn
+                  attention into enquiries.
                 </p>
               </div>
             </div>
-            <div class="page-bottom">Built for local brands</div>
-          </div>
 
-          <div class="page back">
-            <div class="page-top">
+            <div class="page-foot">
+              <span>Brand</span>
+              <span>Built for local businesses</span>
+            </div>
+          </article>
+
+          <article class="page right">
+            <div class="page-head">
               <span>10</span>
               <span>Call To Action</span>
             </div>
+
             <div class="page-body">
               <div class="kicker">Ready To Start?</div>
-              <h2 class="big-title">Let’s Build Your Website</h2>
-              <p class="page-copy">
-                Pick the package that fits your business, book a free demo, and let’s create a website
-                that feels premium and converts better.
+              <h2 class="title-xl">Let’s Build Your Website</h2>
+              <p class="copy">
+                Choose the package that fits your business, book a free demo,
+                and let’s create a site that feels premium and converts better.
               </p>
+
               <div class="cta-box">
-                <p style="color:#544d44; line-height:1.8;">
+                <p>
                   Phone: +91 9167878131<br>
                   Delivery: 2–5 Days<br>
                   WhatsApp Available
@@ -769,76 +854,107 @@ nav h3{
                 <a href="../demo/">Book Free Demo</a>
               </div>
             </div>
-            <div class="page-bottom">End</div>
-          </div>
+
+            <div class="page-foot">
+              <span>End</span>
+              <span>Start your project</span>
+            </div>
+          </article>
         </div>
       </div>
     </div>
 
-    <div class="book-status">
-      <span>Current sheet: <strong id="sheetLabel">1 / 5</strong></span>
+    <div class="status">
+      Spread <strong id="spreadLabel">1 / 5</strong>
     </div>
 
     <div class="mobile-stack">
-      <div class="mobile-page">
+      <div class="mobile-card">
         <div class="kicker">Knovalab Catalogue</div>
-        <h2 class="medium-title">Pricing For Premium Static Websites</h2>
-        <p class="page-copy">Clear packages for different business stages, from lean starter websites to full custom builds.</p>
+        <h2 class="title-lg">Pricing For Premium Static Websites</h2>
+        <p class="copy">
+          The mobile version keeps the same order: pricing first, explanation second.
+        </p>
       </div>
 
-      <div class="mobile-page">
-        <h2 class="medium-title">Basic - ₹4,999/-</h2>
+      <div class="mobile-card">
+        <div class="kicker">Starter Package</div>
+        <h2 class="title-lg">Basic</h2>
+        <div class="price">₹4,999/-</div>
         <ul>
           <li>1 page website</li>
-          <li>Mobile responsive</li>
+          <li>Mobile responsive layout</li>
+          <li>Business information section</li>
           <li>Google Maps integration</li>
           <li>WhatsApp button</li>
         </ul>
+
+        <div class="mobile-block">
+          <span class="badge">Why This Price</span>
+          <p class="copy">
+            Basic is priced for businesses that want a clean, credible online presence without paying
+            for extra pages or advanced customization.
+          </p>
+        </div>
       </div>
 
-      <div class="mobile-page">
-        <h2 class="medium-title">Why Basic Costs ₹4,999</h2>
-        <p class="page-copy">It covers essential business presentation, responsive setup, and a clean starter presence without extra complexity.</p>
-      </div>
-
-      <div class="mobile-page">
-        <h2 class="medium-title">Standard - ₹5,999/-</h2>
+      <div class="mobile-card">
+        <div class="kicker">Growth Package</div>
+        <h2 class="title-lg">Standard</h2>
+        <div class="price">₹5,999/-</div>
         <ul>
           <li>Everything in Basic</li>
           <li>Up to 4 sections</li>
-          <li>Gallery</li>
+          <li>Photo gallery</li>
           <li>Animations</li>
+          <li>Better layout and visual hierarchy</li>
         </ul>
+
+        <div class="mobile-block">
+          <span class="badge">Why This Price</span>
+          <p class="copy">
+            Standard costs more because it adds stronger visual flow, more content space,
+            and a more polished presentation for growing businesses.
+          </p>
+        </div>
       </div>
 
-      <div class="mobile-page">
-        <h2 class="medium-title">Why Standard Costs ₹5,999</h2>
-        <p class="page-copy">You get stronger presentation, more visual polish, and better content structure for growing businesses.</p>
-      </div>
-
-      <div class="mobile-page">
-        <h2 class="medium-title">Premium - ₹7,999/-</h2>
+      <div class="mobile-card">
+        <div class="kicker">Full Custom Package</div>
+        <h2 class="title-lg">Premium</h2>
+        <div class="price">₹7,999/-</div>
         <ul>
           <li>Everything in Standard</li>
           <li>Multi page website</li>
           <li>Advanced custom design</li>
+          <li>Unlimited sections</li>
           <li>Priority changes</li>
         </ul>
+
+        <div class="mobile-block">
+          <span class="badge">Why This Price</span>
+          <p class="copy">
+            Premium reflects deeper customization, more planning, more pages,
+            and a fuller brand presentation across the whole website.
+          </p>
+        </div>
       </div>
 
-      <div class="mobile-page">
-        <h2 class="medium-title">Why Premium Costs ₹7,999</h2>
-        <p class="page-copy">The higher price reflects deeper customization, more pages, more design refinement, and stronger brand presentation.</p>
+      <div class="mobile-card">
+        <span class="badge">About Knovalab</span>
+        <h2 class="title-lg">Fast, Premium Business Websites</h2>
+        <p class="copy">
+          Knovalab builds mobile-first static websites for service businesses that want clarity,
+          speed, and a stronger online image.
+        </p>
       </div>
 
-      <div class="mobile-page">
-        <h2 class="medium-title">About Knovalab</h2>
-        <p class="page-copy">We build fast, premium, mobile-first static websites for service businesses that want clarity and conversion-focused design.</p>
-      </div>
-
-      <div class="mobile-page">
-        <h2 class="medium-title">Ready To Start?</h2>
-        <p class="page-copy">Book a free demo and let’s build your website.</p>
+      <div class="mobile-card">
+        <div class="kicker">Ready To Start?</div>
+        <h2 class="title-lg">Let’s Build Your Website</h2>
+        <p class="copy">
+          Pick a package, book a free demo, and let’s launch something sharp.
+        </p>
         <div style="margin-top:18px;">
           <a href="../demo/" class="nav-btn">Book Free Demo</a>
         </div>
@@ -848,80 +964,73 @@ nav h3{
 </section>
 
 <script>
-const papers = [
-  document.getElementById("paper1"),
-  document.getElementById("paper2"),
-  document.getElementById("paper3"),
-  document.getElementById("paper4"),
-  document.getElementById("paper5")
-];
-
+const spreads = Array.from(document.querySelectorAll(".spread"));
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
-const sheetLabel = document.getElementById("sheetLabel");
+const spreadLabel = document.getElementById("spreadLabel");
 
-let currentLocation = 1;
-const maxLocation = papers.length + 1;
+let current = 0;
+let locked = false;
 
-function updateZIndexes(){
-  papers.forEach((paper, index) => {
-    if(index + 1 < currentLocation){
-      paper.style.zIndex = index + 1;
-    }else{
-      paper.style.zIndex = papers.length - index + 10;
-    }
+function updateUI(){
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = current === spreads.length - 1;
+  spreadLabel.textContent = `${current + 1} / ${spreads.length}`;
+}
+
+function cleanClasses(){
+  spreads.forEach(spread => {
+    spread.classList.remove("active", "next-out", "prev-in");
   });
 }
 
-function updateUI(){
-  prevBtn.disabled = currentLocation === 1;
-  nextBtn.disabled = currentLocation === maxLocation;
-  sheetLabel.textContent = `${Math.min(currentLocation, papers.length)} / ${papers.length}`;
-  if(currentLocation === maxLocation){
-    sheetLabel.textContent = `${papers.length} / ${papers.length}`;
-  }
-}
+function showSpread(nextIndex, direction){
+  if(locked || nextIndex < 0 || nextIndex >= spreads.length || nextIndex === current) return;
 
-function goNextPage(){
-  if(currentLocation < maxLocation){
-    papers[currentLocation - 1].classList.add("flipped");
-    currentLocation++;
-    updateZIndexes();
+  locked = true;
+
+  const currentSpread = spreads[current];
+  const nextSpread = spreads[nextIndex];
+
+  if(direction === "next"){
+    nextSpread.classList.add("active");
+    currentSpread.classList.add("next-out");
+  }else{
+    nextSpread.classList.add("prev-in", "active");
+    currentSpread.classList.remove("active");
+  }
+
+  setTimeout(() => {
+    cleanClasses();
+    nextSpread.classList.add("active");
+    current = nextIndex;
     updateUI();
-  }
+    locked = false;
+  }, 900);
 }
 
-function goPrevPage(){
-  if(currentLocation > 1){
-    papers[currentLocation - 2].classList.remove("flipped");
-    currentLocation--;
-    updateZIndexes();
-    updateUI();
-  }
-}
-
-nextBtn.addEventListener("click", goNextPage);
-prevBtn.addEventListener("click", goPrevPage);
+nextBtn.addEventListener("click", () => showSpread(current + 1, "next"));
+prevBtn.addEventListener("click", () => showSpread(current - 1, "prev"));
 
 document.addEventListener("keydown", (e) => {
-  if(e.key === "ArrowRight") goNextPage();
-  if(e.key === "ArrowLeft") goPrevPage();
+  if(e.key === "ArrowRight") showSpread(current + 1, "next");
+  if(e.key === "ArrowLeft") showSpread(current - 1, "prev");
 });
 
 let touchStartX = 0;
+const book = document.getElementById("book");
 
-document.getElementById("book").addEventListener("touchstart", (e) => {
+book.addEventListener("touchstart", (e) => {
   touchStartX = e.touches[0].clientX;
 }, { passive:true });
 
-document.getElementById("book").addEventListener("touchend", (e) => {
+book.addEventListener("touchend", (e) => {
   const diff = e.changedTouches[0].clientX - touchStartX;
   if(Math.abs(diff) < 40) return;
-  if(diff < 0) goNextPage();
-  if(diff > 0) goPrevPage();
+  if(diff < 0) showSpread(current + 1, "next");
+  if(diff > 0) showSpread(current - 1, "prev");
 }, { passive:true });
 
-updateZIndexes();
 updateUI();
 </script>
 
