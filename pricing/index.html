@@ -434,9 +434,21 @@
         <p class="desc">Perfect for small businesses starting online with a focused one-page presence.</p>
 
         <div class="price-box">
-          <div class="price" data-base-price="4999">₹4,999/-</div>
+          <div class="price">₹4,999/-</div>
           <div class="price-note">One-time website setup</div>
-          <button class="btn pay-btn" data-plan="Basic" data-base-price="4999" data-amount="499900" data-currency="INR">Pay Now</button>
+          <button
+            class="btn pay-btn"
+            data-plan="Basic"
+            data-price-inr="4999"
+            data-price-usd="59"
+            data-price-eur="54"
+            data-price-gbp="47"
+            data-price-kwd="18"
+            data-currency="INR"
+            data-amount="499900"
+          >
+            Pay Now
+          </button>
           <a href="../demo/" class="demo-btn">Book Free Demo</a>
         </div>
 
@@ -455,9 +467,21 @@
         <p class="desc">Best for growing businesses that need a better layout and more room to explain their services.</p>
 
         <div class="price-box">
-          <div class="price" data-base-price="5999">₹5,999/-</div>
+          <div class="price">₹6,599/-</div>
           <div class="price-note">One-time website setup</div>
-          <button class="btn pay-btn" data-plan="Standard" data-base-price="5999" data-amount="599900" data-currency="INR">Pay Now</button>
+          <button
+            class="btn pay-btn"
+            data-plan="Standard"
+            data-price-inr="6599"
+            data-price-usd="79"
+            data-price-eur="72"
+            data-price-gbp="62"
+            data-price-kwd="24"
+            data-currency="INR"
+            data-amount="659900"
+          >
+            Pay Now
+          </button>
           <a href="../demo/" class="demo-btn">Book Free Demo</a>
         </div>
 
@@ -476,9 +500,21 @@
         <p class="desc">A full custom website solution for businesses that want more pages, more flexibility, and priority support.</p>
 
         <div class="price-box">
-          <div class="price" data-base-price="7999">₹7,999/-</div>
+          <div class="price">₹8,299/-</div>
           <div class="price-note">One-time website setup</div>
-          <button class="btn pay-btn" data-plan="Premium" data-base-price="7999" data-amount="799900" data-currency="INR">Pay Now</button>
+          <button
+            class="btn pay-btn"
+            data-plan="Premium"
+            data-price-inr="8299"
+            data-price-usd="99"
+            data-price-eur="90"
+            data-price-gbp="78"
+            data-price-kwd="30"
+            data-currency="INR"
+            data-amount="829900"
+          >
+            Pay Now
+          </button>
           <a href="../demo/" class="demo-btn">Book Free Demo</a>
         </div>
 
@@ -509,91 +545,79 @@
 
     const currencyConfig = {
       INR: {
-        label: "INR",
-        rate: 1,
+        key: "inr",
         subunits: 100,
-        displayDecimals: 0,
-        locale: "en-IN"
+        locale: "en-IN",
+        decimals: 0
       },
       USD: {
-        label: "USD",
-        rate: 0.012,
+        key: "usd",
         subunits: 100,
-        displayDecimals: 2,
-        locale: "en-US"
+        locale: "en-US",
+        decimals: 0
       },
       EUR: {
-        label: "EURO",
-        rate: 0.011,
+        key: "eur",
         subunits: 100,
-        displayDecimals: 2,
-        locale: "de-DE"
+        locale: "de-DE",
+        decimals: 0
       },
       GBP: {
-        label: "POUNDS",
-        rate: 0.0094,
+        key: "gbp",
         subunits: 100,
-        displayDecimals: 2,
-        locale: "en-GB"
+        locale: "en-GB",
+        decimals: 0
       },
       KWD: {
-        label: "KWD",
-        rate: 0.0037,
+        key: "kwd",
         subunits: 1000,
-        displayDecimals: 3,
-        locale: "en-KW"
+        locale: "en-KW",
+        decimals: 0
       }
     };
 
+    const currencyLabels = {
+      INR: "₹",
+      USD: "$",
+      EUR: "€",
+      GBP: "£",
+      KWD: "KWD "
+    };
+
     const currencySelect = document.getElementById("currencySelect");
-    const pricingCards = document.querySelectorAll(".card");
     let currentCurrency = currencySelect.value;
 
     function formatDisplayPrice(amount, currencyCode) {
-      const config = currencyConfig[currencyCode];
-
       if (currencyCode === "INR") {
         return "₹" + new Intl.NumberFormat("en-IN", {
-          minimumFractionDigits: 0,
           maximumFractionDigits: 0
         }).format(amount) + "/-";
       }
 
       if (currencyCode === "KWD") {
-        return "KWD " + new Intl.NumberFormat(config.locale, {
-          minimumFractionDigits: config.displayDecimals,
-          maximumFractionDigits: config.displayDecimals
+        return "KWD " + new Intl.NumberFormat("en-KW", {
+          maximumFractionDigits: 0
         }).format(amount);
       }
 
-      return new Intl.NumberFormat(config.locale, {
-        style: "currency",
-        currency: currencyCode,
-        minimumFractionDigits: config.displayDecimals,
-        maximumFractionDigits: config.displayDecimals
+      return currencyLabels[currencyCode] + new Intl.NumberFormat(currencyConfig[currencyCode].locale, {
+        maximumFractionDigits: 0
       }).format(amount);
-    }
-
-    function toSubunitAmount(amount, currencyCode) {
-      const multiplier = currencyConfig[currencyCode].subunits;
-      return Math.round(amount * multiplier);
     }
 
     function updatePrices(currencyCode) {
       currentCurrency = currencyCode;
 
-      pricingCards.forEach((card) => {
-        const priceEl = card.querySelector(".price");
-        const payBtn = card.querySelector(".pay-btn");
-        const basePriceInInr = Number(payBtn.dataset.basePrice);
-        const convertedAmount = basePriceInInr * currencyConfig[currencyCode].rate;
-        const displayPrice = formatDisplayPrice(convertedAmount, currencyCode);
-        const subunitAmount = toSubunitAmount(convertedAmount, currencyCode);
+      document.querySelectorAll(".pay-btn").forEach((button) => {
+        const priceElement = button.parentElement.querySelector(".price");
+        const dataKey = "price" + currencyCode.charAt(0) + currencyCode.slice(1).toLowerCase();
+        const amount = Number(button.dataset[dataKey]);
+        const subunitAmount = Math.round(amount * currencyConfig[currencyCode].subunits);
 
-        priceEl.textContent = displayPrice;
-        payBtn.dataset.amount = String(subunitAmount);
-        payBtn.dataset.currency = currencyCode;
-        payBtn.dataset.displayAmount = convertedAmount.toFixed(currencyConfig[currencyCode].displayDecimals);
+        priceElement.textContent = formatDisplayPrice(amount, currencyCode);
+        button.dataset.currency = currencyCode;
+        button.dataset.amount = String(subunitAmount);
+        button.dataset.displayAmount = String(amount);
       });
     }
 
@@ -606,9 +630,7 @@
         const plan = this.dataset.plan;
         const amount = Number(this.dataset.amount);
         const currency = this.dataset.currency || currentCurrency;
-        const displayAmount =
-          this.dataset.displayAmount ||
-          (Number(this.dataset.basePrice) * currencyConfig[currency].rate).toFixed(currencyConfig[currency].displayDecimals);
+        const displayAmount = this.dataset.displayAmount || "0";
 
         const options = {
           key: RAZORPAY_KEY_ID,
