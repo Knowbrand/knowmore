@@ -56,10 +56,53 @@
       font-size:24px;
       font-weight:800;
       letter-spacing:-0.8px;
+      color:#ffffff;
     }
 
     .logo span{
-      color:var(--accent);
+      color:inherit;
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .currency-wrap{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,0.03);
+    }
+
+    .currency-wrap label{
+      font-size:12px;
+      font-weight:700;
+      color:rgba(255,255,255,0.78);
+      text-transform:uppercase;
+      letter-spacing:1px;
+      white-space:nowrap;
+    }
+
+    .currency-select{
+      background:transparent;
+      border:none;
+      outline:none;
+      color:#ffffff;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      min-width:96px;
+    }
+
+    .currency-select option{
+      color:#111111;
+      background:#ffffff;
     }
 
     .back-btn{
@@ -314,6 +357,23 @@
         padding:16px 14px;
       }
 
+      .nav-actions{
+        width:100%;
+        justify-content:flex-end;
+      }
+
+      .currency-wrap{
+        width:100%;
+        justify-content:space-between;
+        border-radius:14px;
+      }
+
+      .currency-select{
+        min-width:0;
+        width:100%;
+        text-align:right;
+      }
+
       .hero{
         padding:54px 14px 24px;
       }
@@ -340,8 +400,20 @@
 <body>
 
   <nav>
-    <div class="logo">Knova<span>lab</span></div>
-    <a href="../" class="back-btn">Home</a>
+    <div class="logo">Knovalab</div>
+    <div class="nav-actions">
+      <div class="currency-wrap">
+        <label for="currencySelect">Currency</label>
+        <select id="currencySelect" class="currency-select" aria-label="Select currency">
+          <option value="INR">INR</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EURO</option>
+          <option value="GBP">POUNDS</option>
+          <option value="KWD">KWD</option>
+        </select>
+      </div>
+      <a href="../" class="back-btn">Home</a>
+    </div>
   </nav>
 
   <section class="hero">
@@ -362,9 +434,9 @@
         <p class="desc">Perfect for small businesses starting online with a focused one-page presence.</p>
 
         <div class="price-box">
-          <div class="price">₹4,999/-</div>
+          <div class="price" data-base-price="4999">₹4,999/-</div>
           <div class="price-note">One-time website setup</div>
-          <button class="btn pay-btn" data-plan="Basic" data-amount="499900">Pay Now</button>
+          <button class="btn pay-btn" data-plan="Basic" data-base-price="4999" data-amount="499900" data-currency="INR">Pay Now</button>
           <a href="../demo/" class="demo-btn">Book Free Demo</a>
         </div>
 
@@ -383,9 +455,9 @@
         <p class="desc">Best for growing businesses that need a better layout and more room to explain their services.</p>
 
         <div class="price-box">
-          <div class="price">₹5,999/-</div>
+          <div class="price" data-base-price="5999">₹5,999/-</div>
           <div class="price-note">One-time website setup</div>
-          <button class="btn pay-btn" data-plan="Standard" data-amount="599900">Pay Now</button>
+          <button class="btn pay-btn" data-plan="Standard" data-base-price="5999" data-amount="599900" data-currency="INR">Pay Now</button>
           <a href="../demo/" class="demo-btn">Book Free Demo</a>
         </div>
 
@@ -404,9 +476,9 @@
         <p class="desc">A full custom website solution for businesses that want more pages, more flexibility, and priority support.</p>
 
         <div class="price-box">
-          <div class="price">₹7,999/-</div>
+          <div class="price" data-base-price="7999">₹7,999/-</div>
           <div class="price-note">One-time website setup</div>
-          <button class="btn pay-btn" data-plan="Premium" data-amount="799900">Pay Now</button>
+          <button class="btn pay-btn" data-plan="Premium" data-base-price="7999" data-amount="799900" data-currency="INR">Pay Now</button>
           <a href="../demo/" class="demo-btn">Book Free Demo</a>
         </div>
 
@@ -435,22 +507,121 @@
   <script>
     const RAZORPAY_KEY_ID = "rzp_test_SfGGUtugw2QPkd";
 
+    const currencyConfig = {
+      INR: {
+        label: "INR",
+        rate: 1,
+        subunits: 100,
+        displayDecimals: 0,
+        locale: "en-IN"
+      },
+      USD: {
+        label: "USD",
+        rate: 0.012,
+        subunits: 100,
+        displayDecimals: 2,
+        locale: "en-US"
+      },
+      EUR: {
+        label: "EURO",
+        rate: 0.011,
+        subunits: 100,
+        displayDecimals: 2,
+        locale: "de-DE"
+      },
+      GBP: {
+        label: "POUNDS",
+        rate: 0.0094,
+        subunits: 100,
+        displayDecimals: 2,
+        locale: "en-GB"
+      },
+      KWD: {
+        label: "KWD",
+        rate: 0.0037,
+        subunits: 1000,
+        displayDecimals: 3,
+        locale: "en-KW"
+      }
+    };
+
+    const currencySelect = document.getElementById("currencySelect");
+    const pricingCards = document.querySelectorAll(".card");
+    let currentCurrency = currencySelect.value;
+
+    function formatDisplayPrice(amount, currencyCode) {
+      const config = currencyConfig[currencyCode];
+
+      if (currencyCode === "INR") {
+        return "₹" + new Intl.NumberFormat("en-IN", {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }).format(amount) + "/-";
+      }
+
+      if (currencyCode === "KWD") {
+        return "KWD " + new Intl.NumberFormat(config.locale, {
+          minimumFractionDigits: config.displayDecimals,
+          maximumFractionDigits: config.displayDecimals
+        }).format(amount);
+      }
+
+      return new Intl.NumberFormat(config.locale, {
+        style: "currency",
+        currency: currencyCode,
+        minimumFractionDigits: config.displayDecimals,
+        maximumFractionDigits: config.displayDecimals
+      }).format(amount);
+    }
+
+    function toSubunitAmount(amount, currencyCode) {
+      const multiplier = currencyConfig[currencyCode].subunits;
+      return Math.round(amount * multiplier);
+    }
+
+    function updatePrices(currencyCode) {
+      currentCurrency = currencyCode;
+
+      pricingCards.forEach((card) => {
+        const priceEl = card.querySelector(".price");
+        const payBtn = card.querySelector(".pay-btn");
+        const basePriceInInr = Number(payBtn.dataset.basePrice);
+        const convertedAmount = basePriceInInr * currencyConfig[currencyCode].rate;
+        const displayPrice = formatDisplayPrice(convertedAmount, currencyCode);
+        const subunitAmount = toSubunitAmount(convertedAmount, currencyCode);
+
+        priceEl.textContent = displayPrice;
+        payBtn.dataset.amount = String(subunitAmount);
+        payBtn.dataset.currency = currencyCode;
+        payBtn.dataset.displayAmount = convertedAmount.toFixed(currencyConfig[currencyCode].displayDecimals);
+      });
+    }
+
+    currencySelect.addEventListener("change", function () {
+      updatePrices(this.value);
+    });
+
     document.querySelectorAll(".pay-btn").forEach((button) => {
       button.addEventListener("click", function () {
         const plan = this.dataset.plan;
         const amount = Number(this.dataset.amount);
+        const currency = this.dataset.currency || currentCurrency;
+        const displayAmount =
+          this.dataset.displayAmount ||
+          (Number(this.dataset.basePrice) * currencyConfig[currency].rate).toFixed(currencyConfig[currency].displayDecimals);
 
         const options = {
           key: RAZORPAY_KEY_ID,
           amount: amount,
-          currency: "INR",
+          currency: currency,
           name: "Knovalab",
           description: plan + " Plan",
           handler: function (response) {
             const url =
               "./success/index.html" +
               "?plan=" + encodeURIComponent(plan) +
-              "&amount=" + encodeURIComponent(amount / 100) +
+              "&amount=" + encodeURIComponent(displayAmount) +
+              "&currency=" + encodeURIComponent(currency) +
               "&payment_id=" + encodeURIComponent(response.razorpay_payment_id);
 
             window.location.href = url;
@@ -462,7 +633,8 @@
           },
           notes: {
             plan: plan,
-            source: "Knovalab Pricing Page"
+            source: "Knovalab Pricing Page",
+            currency: currency
           },
           theme: {
             color: "#ff6a00"
@@ -473,6 +645,8 @@
         rzp.open();
       });
     });
+
+    updatePrices(currentCurrency);
   </script>
 </body>
 </html>
